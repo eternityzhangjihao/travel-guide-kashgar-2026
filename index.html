@@ -1,0 +1,1899 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="Cache" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="//assets.zhihuishu.com/icon/favicon.ico" rel="shortcut icon" />
+    <link
+      href="./css/swiper-bundle.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>微专业门户</title>
+    <script type="text/javascript">
+      !(function () {
+        var a =
+            "@charset \"utf-8\";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}",
+          b = document.createElement("style");
+        if (
+          (document.getElementsByTagName("head")[0].appendChild(b),
+          b.styleSheet)
+        )
+          b.styleSheet.disabled || (b.styleSheet.cssText = a);
+        else
+          try {
+            b.innerHTML = a;
+          } catch (c) {
+            b.innerText = a;
+          }
+      })();
+    </script>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+      /* 覆盖 njtechMore 的 slide-logo 背景图及尺寸（312px * 90px） */
+      .slide-logo {
+        background: url("https://image.zhihuishu.com/zhs_yufa_150820/b2cm/base1/202607/0724cf1982f7459c92c391c0c5231d99.png")
+          transparent 50% / contain no-repeat !important;
+        width: 19.5rem !important;
+        height: 5.625rem !important;
+        aspect-ratio: 312 / 90 !important;
+        top: 1.875rem !important;
+        left: 3.75rem !important;
+      }
+      /* 微专业简化卡片 */
+      .micro-list {
+        margin: 3.75rem 5rem;
+      }
+      .micro-item {
+        border-radius: 1.25rem;
+        background: #fff;
+        margin-top: 1.5rem;
+        padding: 2.5rem 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: box-shadow 0.3s;
+      }
+      .micro-item:first-child {
+        margin-top: 0;
+      }
+      .micro-item:hover {
+        box-shadow: 0 0.25rem 1.5rem rgba(0, 29, 200, 0.1);
+      }
+      .micro-item-title {
+        color: #000;
+        font-family: "PingFang SC";
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      .micro-item-btn {
+        display: flex;
+        width: 10rem;
+        height: 3.5rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.5rem;
+        background: #001dc8;
+        color: #fff;
+        text-align: center;
+        font-family: "PingFang SC";
+        font-size: 1.25rem;
+        font-style: normal;
+        letter-spacing: 0.0125rem;
+        border: none;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+      /* 外校微专业右侧列表 */
+      .xiaowaizhuanye-right .micro-list {
+        margin-left: 4.25rem;
+        margin-right: 0;
+        margin-top: 0;
+      }
+      .xiaowaizhuanye-right .micro-item {
+        padding: 2rem 2.5rem;
+      }
+      .xiaowaizhuanye-right .micro-item-title {
+        font-size: 1.5rem;
+      }
+      .xiaowaizhuanye-right .micro-item-btn {
+        width: 9.375rem;
+        height: 3rem;
+        border-radius: 0.375rem;
+        font-size: 1.125rem;
+      }
+      /* 新闻资讯 */
+      .zjls-news {
+        margin-top: 0.625rem;
+        background: #fff;
+        padding: 3.125rem 5rem;
+      }
+      .zjls-news .news-time-line {
+        overflow: visible;
+        height: auto;
+      }
+      .zjls-news .news-time-item {
+        margin-bottom: 3rem;
+      }
+      /* 移除header后清除顶部预留空间 */
+      .swiper-container {
+        padding-top: 0 !important;
+      }
+      /* footer高度调整 */
+      .footer {
+        height: 150px !important;
+      }
+      /* 外校微专业左侧学校列表独立滚动 */
+      .xiaowaizhuanye {
+        align-items: flex-start;
+      }
+      .xiaowaizhuanye-left > ul {
+        max-height: 55rem;
+        overflow-y: auto;
+      }
+      /* footer 内联样式 */
+      .footer { padding-top: 40px; background: #1d1d1d; min-width: 1200px; }
+      .footer .banner { width: 880px; margin: 0 auto; }
+      .clearfix:after { clear: both; content: "."; display: block; font-size: 0; height: 0; line-height: 0; visibility: hidden; }
+      .clearfix { clear: both; zoom: 1; }
+      .icp__wrap { text-align: center; line-height: 40px; }
+      .icp__wrap a { margin: 0 15px; }
+      .footer-copy-text { color: #777; font-size: 12px; line-height: 40px; text-align: center; }
+      .footer-copy-text a { color: #777; margin-right: 30px; }
+      .footer-copy-text a:hover { color: #EDEDED; }
+      .gnr-icon, .license-icon, .protect-link { display: inline-block; width: 20px; height: 20px; margin-right: 3px; vertical-align: middle; background: url(https://image.zhihuishu.com/zhs_yufa_150820/ablecommons/demo/201908/551ded4481624c53a023a7071428b3c3.png) no-repeat; }
+      .protect-link { background: url(https://image.zhihuishu.com/zhs/ablecommons/demo/202005/7ee4bb5e6db64cc5bf1cef0b73f514c1.png) no-repeat; }
+      .license-icon { background: url(https://image.zhihuishu.com/zhs_yufa_150820/ablecommons/demo/201908/cd25bd7dce0c4dba9e095ba8e7a64e47.png) no-repeat; }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Swiper 容器 -->
+      <div class="swiper-container">
+        <!-- 必需的包装器 -->
+        <div class="swiper-wrapper">
+          <!-- 幻灯片 -->
+          <div
+            class="swiper-slide"
+            style="
+              background-image: url(&quot;https://image.zhihuishu.com/zhs/zhserp/initUpload/202607/1a3789d23a2947dba2fb210c38eb65e5.jpeg&quot;);
+            "
+          >
+            <div class="slide-content">
+              <div class="slide-liner"></div>
+              <div class="slide-logo"></div>
+              <div class="slide-remark">
+                <h2 class="slide-title">
+                  <span>微专业</span><span>大未来</span>
+                </h2>
+                <p class="slide-description">
+                  聚焦行业前沿，强化实践能力，为你的职业发展注入新动能。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide"
+            style="
+              background-image: url(&quot;https://image.zhihuishu.com/zhs/zhserp/initUpload/202607/ea137d351acc46f8ba457134aaa1f67b.jpg&quot;);
+            "
+          >
+            <div class="slide-content">
+              <div class="slide-liner"></div>
+              <div class="slide-logo"></div>
+              <div class="slide-remark">
+                <h2 class="slide-title">
+                  <span>微专业</span><span>大未来</span>
+                </h2>
+                <p class="slide-description">
+                  聚焦行业前沿，强化实践能力，为你的职业发展注入新动能。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide"
+            style="
+              background-image: url(&quot;https://image.zhihuishu.com/zhs/zhserp/initUpload/202607/3f8428c0631a47009028de8d17466a52.jpg&quot;);
+            "
+          >
+            <div class="slide-content">
+              <div class="slide-liner"></div>
+              <div class="slide-logo"></div>
+              <div class="slide-remark">
+                <h2 class="slide-title">
+                  <span>微专业</span><span>大未来</span>
+                </h2>
+                <p class="slide-description">
+                  聚焦行业前沿，强化实践能力，为你的职业发展注入新动能。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 分页器 -->
+        <div class="swiper-pagination"></div>
+      </div>
+      <!-- 采用vue编写 -->
+      <div id="app" v-cloak>
+        <!-- tab -->
+        <ul class="tab-box">
+          <li
+            :class="{'tab-li': true, active: tabIndex == 1}"
+            @click="handleTabClick(1)"
+          >
+            <span>本校微专业</span>
+          </li>
+          <li
+            :class="{'tab-li': true, active: tabIndex == 2}"
+            @click="handleTabClick(2)"
+          >
+            <span>外校微专业推荐</span>
+          </li>
+          <li
+            :class="{'tab-li': true, active: tabIndex == 3}"
+            @click="handleTabClick(3)"
+          >
+            <span>新闻资讯</span>
+          </li>
+        </ul>
+        <!-- 内容 -->
+        <div class="content">
+          <!-- 本校微专业 -->
+          <div v-if="tabIndex === 1">
+            <div class="industry-box" @click="handleEmptyClick">
+              <h2 class="industry-box-title">产业人才需求方向</h2>
+              <ul class="industry-box-list">
+                <li
+                  class="industry-item"
+                  v-for="(item, index) in industryList"
+                  :key="item.tag"
+                  @click.stop="handleIndustryTag(item)"
+                >
+                  <div class="industry-item-container">
+                    <div
+                      class="industry-item-bg"
+                      :style="{ background: industryTag === item.tag ? getIndustryTagValues(item.tag).lineColor : '' }"
+                    ></div>
+                    <div class="industry-item-img">
+                      <img :src="item.img" alt="" />
+                    </div>
+                    <div class="industry-item-main">
+                      <div class="industry-item-title">
+                        <h3>{{getIndustryTagValues(item.tag).text}}</h3>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="14"
+                          viewBox="0 0 9 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M1 1L7 7L1 13"
+                            stroke="#1E1F24"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </div>
+                      <p class="industry-item-desc">{{item.desc}}</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="benxiaoweizhuanye-box">
+              <div class="industry-content-list">
+                <div
+                  class="industry-content-item"
+                  v-for="(item, index) in courseInfoList"
+                  :key="item.id"
+                >
+                  <div class="industry-content-item-left">
+                    <img :src="item.img" alt="" />
+                    <div
+                      class="industry-content-item__tag"
+                      v-if="item.tag"
+                      :style="{ background: getIndustryTagValues(item.tag).color || '' }"
+                    >
+                      {{getIndustryTagValues(item.tag).text}}
+                    </div>
+                  </div>
+                  <div class="industry-content-item-right">
+                    <h3 class="industry-content-item__title">
+                      《{{item.name}}》
+                    </h3>
+                    <ul class="industry-content-item__courseList">
+                      <li
+                        v-for="(target, targetIndex) in item.targetList"
+                        :key="targetIndex"
+                      >
+                        {{target}}
+                      </li>
+                    </ul>
+                    <div class="industry-content-item__courseInfo">
+                      <span>{{item.university}}</span>
+                      <span class="line">&nbsp;|&nbsp;</span>
+                      <span>{{item.courseNum}}门课程</span>
+                      <span class="line">&nbsp;|&nbsp;</span>
+                      <span>{{item.credit}}学分</span>
+                      <span class="line">&nbsp;|&nbsp;</span>
+                      <span>{{item.hour}}学时</span>
+                    </div>
+                    <button
+                      class="industry-content-item-btn"
+                      @click="gotoDetail(item)"
+                    >
+                      了解详情
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 外校微专业推荐 -->
+          <div v-if="tabIndex === 2">
+            <div class="xiaowaizhuanye">
+              <div class="xiaowaizhuanye-left">
+                <ul>
+                  <li
+                    :class="{'xiaowaizhuanye-left-item': true, active: xiaowaizhuanyeCurrentSchool === item.name }"
+                    v-for="(item, index) in xiaowaizhuanye_school_list"
+                    :key="item.name"
+                    @click="handleXiaowaizhuanyeSchool(item)"
+                  >
+                    <div class="left-border"></div>
+                    <img :src="item.img" :alt="item.name" />
+                  </li>
+                </ul>
+              </div>
+              <div class="xiaowaizhuanye-right">
+                <div class="industry-content-list">
+                  <div
+                    class="industry-content-item"
+                    v-for="(item, index) in xiaowaizhuanyeCommendList"
+                    :key="item.id"
+                  >
+                    <div class="industry-content-item-left">
+                      <img :src="item.img" alt="" />
+                      <div
+                        class="industry-content-item__tag"
+                        :style="{ background: getIndustryTagValues(item.tag).color || '' }"
+                      >
+                        {{getIndustryTagValues(item.tag).text}}
+                      </div>
+                    </div>
+                    <div class="industry-content-item-right">
+                      <h3 class="industry-content-item__title">
+                        《{{item.name}}》
+                      </h3>
+                      <ul class="industry-content-item__courseList">
+                        <li
+                          v-for="(target, targetIndex) in item.targetList"
+                          :key="targetIndex"
+                        >
+                          {{target}}
+                        </li>
+                      </ul>
+                      <div class="industry-content-item__courseInfo">
+                        <span>{{item.university}}</span>
+                        <span class="line">&nbsp;|&nbsp;</span>
+                        <span>{{item.courseNum}}门课程</span>
+                        <span class="line">&nbsp;|&nbsp;</span>
+                        <span>{{item.credit}}学分</span>
+                        <span class="line">&nbsp;|&nbsp;</span>
+                        <span>{{item.hour}}学时</span>
+                      </div>
+                      <button
+                        class="industry-content-item-btn"
+                        @click="gotoDetail(item)"
+                      >
+                        了解详情
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 新闻资讯 -->
+          <div v-if="tabIndex === 3">
+            <div class="zjls-news">
+              <ul class="news-time-line">
+                <li
+                  class="news-time-item"
+                  v-for="(item, index) in newsList"
+                  :key="item.id"
+                  @click="handleNews(item)"
+                >
+                  <div class="news-time-item-timer">
+                    <span>{{item.month + '.' + item.day}}</span>
+                    <span>{{item.year}}</span>
+                  </div>
+                  <div class="news-time-item-split">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="2"
+                      height="44"
+                      viewBox="0 0 2 44"
+                      fill="none"
+                    >
+                      <path d="M1 0V43.5" stroke="black" stroke-opacity="0.3" />
+                    </svg>
+                  </div>
+                  <div class="news-time-item-content">
+                    <h3 class="news-time-item-title">{{item.name}}</h3>
+                    <div class="news-time-item-remark">
+                      来源：{{item.origin}}
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class="footer clearfix">
+        <div class="banner">
+          <div class="icp__wrap">
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402003974" target="_blank">
+              <i class="gnr-icon"></i>沪公网备31010402003974号</a>
+            <a href="https://www.zhihuishu.com/businessLicense.html" target="_blank">
+              <i class="license-icon"></i>电子营业执照</a>
+            <a href="https://www.zhihuishu.com/protect.html" target="_blank">
+              <i class="protect-link"></i>信息系统安全等级保护备案证明
+            </a>
+          </div>
+          <div class="footer-copy-text">Copyright © 2003-现在 Zhihuishu. All rights reserved.
+            <a class="first" href="//beian.miit.gov.cn" target="_blank">沪ICP备10007183号-5</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="//assets.zhihuishu.com/jquery/1.8.3/jquery.min.js?v=20200708"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript" src="./IconFont/iconfont.js"></script>
+    <script
+      src="//assets.zhihuishu.com/jquery-cookie/1.4.1/jquery.cookie.min.js?v=20200708"
+      type="text/javascript"
+    ></script>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+
+    <script>
+      new Swiper(".swiper-container", {
+        loop: true,
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        },
+      });
+
+      $(function () {
+        //时间转换
+        Date.prototype.Format = function (fmt) {
+          var o = {
+            "M+": this.getMonth() + 1,
+            "d+": this.getDate(),
+            "h+": this.getHours(),
+            "m+": this.getMinutes(),
+            "s+": this.getSeconds(),
+            "q+": Math.floor((this.getMonth() + 3) / 3),
+            S: this.getMilliseconds(),
+          };
+          if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(
+              RegExp.$1,
+              (this.getFullYear() + "").substr(4 - RegExp.$1.length),
+            );
+          }
+          for (var k in o) {
+            if (new RegExp("(" + k + ")").test(fmt)) {
+              fmt = fmt.replace(
+                RegExp.$1,
+                RegExp.$1.length == 1
+                  ? o[k]
+                  : ("00" + o[k]).substr(("" + o[k]).length),
+              );
+            }
+          }
+          return fmt;
+        };
+
+        var staus = getCookie("staus");
+        if (staus == 1) {
+          $("body").addClass("white");
+          $(".header").addClass("light");
+        } else {
+          $("body").removeClass("white");
+          $(".header").removeClass("light");
+        }
+
+        var loginInfo = jQuery.parseJSON(getCookie("CASLOGC")) || "";
+
+        $("#signUpNow").click(function () {
+          window.location.href =
+            "//fr.lingxi360.com/f?fid=OECdcGQTNrkHf&utm_bccid=LXEMCtDG";
+        });
+
+        //伸缩窗口 banner始终图片居中
+        if ($(window).width() > 1190) {
+          var imgLeft = -Math.ceil((1920 - $(window).width()) / 2);
+          $(".banner-wrapper img").css("margin-left", imgLeft);
+        } else {
+          $(".banner-wrapper img").css("margin-left", "-330px");
+        }
+
+        $(window).resize(function () {
+          if ($(window).width() > 1190) {
+            var imgLeft = -Math.ceil((1920 - $(window).width()) / 2);
+            $(".banner-wrapper img").css("margin-left", imgLeft);
+          }
+        });
+
+        //百度统计
+        var _hmt = _hmt || [];
+        (function () {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?0a1b7151d8c580761c3aef32a3d501c6";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+
+        /*获取cookie*/
+        function getCookie(c_name) {
+          if (document.cookie.length > 0) {
+            c_start = document.cookie.indexOf(c_name + "=");
+            if (c_start != -1) {
+              c_start = c_start + c_name.length + 1;
+              c_end = document.cookie.indexOf(";", c_start);
+              if (c_end == -1) c_end = document.cookie.length;
+              return decodeURIComponent(
+                document.cookie.substring(c_start, c_end),
+              );
+            }
+          }
+          return "";
+        }
+        function delCookie(name) {
+          var exp = new Date();
+          exp.setTime(exp.getTime() - 1);
+          var cval = getCookie(name);
+          if (cval != null)
+            document.cookie =
+              name + "=" + cval + ";expires=" + exp.toGMTString();
+        }
+        function getQueryStringWzx(name) {
+          var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+          var r = window.location.search.substr(1).match(reg);
+          if (r != null) return unescape(r[2]);
+          return null;
+        }
+        //获取用户登录信息
+        userGetInfo = function () {
+          var loginInfo = jQuery.parseJSON(getCookie("CASLOGC"));
+          $(".js-newTermBtn").click(function () {
+            coursereg(loginInfo);
+          });
+          if (loginInfo != null) {
+            var realName = loginInfo.realName;
+            var loginUserId = loginInfo.userId;
+            var username = loginInfo.username;
+            var headPic = loginInfo.headPic;
+            var myuni = loginInfo.myuniRole;
+            var mycu = loginInfo.mycuRole;
+            var myinst = loginInfo.myinstRole;
+            userGetMsg(loginUserId);
+            if (realName && loginUserId && username) {
+              $("#login-register").hide();
+              if ($(".lr-menu-item").length > 0) {
+                $(".lr-menu-item").hide();
+              }
+              $("#userInfo").show();
+              $("#userImg").attr("src", headPic);
+              $("#userName").text(realName);
+              $("#userImg").click(function () {
+                window.location =
+                  "https://onlineh5.zhihuishu.com/onlineWeb.html#/entry";
+              });
+              if (myuni == "1") {
+                $("#myschool").show();
+              } else {
+                $("#myschool").hide();
+              }
+              if (mycu == "1") {
+                $("#isShowMyCU a").attr(
+                  "href",
+                  "//mycu.zhihuishu.com/loginSystem",
+                );
+                $("#isShowMyCU").show();
+              } else {
+                $("#isShowMyCU a").attr("href", "javascritp:void(0);");
+                $("#isShowMyCU").hide();
+              }
+              if (myinst == "1") {
+                $("#myinst").show();
+              } else {
+                $("#myinst").hide();
+              }
+            }
+          }
+        };
+        //获取message消息
+        userGetMsg = function (userId) {
+          if (userId) {
+            if (userId != null) {
+              $.ajax({
+                type: "get",
+                url: "//message.zhihuishu.com/msgcenter/findMsgCnt",
+                data: { userId: userId },
+                dataType: "jsonp",
+                jsonp: "callback",
+                async: false,
+                cache: false,
+                success: function (json) {
+                  if (json.rt > 0) {
+                    $("#noti-tip").text(json.rt);
+                    $("#noti-tip").show();
+                    $("#noti-tip_no").text(json.rt);
+                    $("#noti-tip_no").show();
+                  } else {
+                    $("#noti-tip").text("");
+                    $("#noti-tip").hide();
+                    $("#noti-tip_no").text("");
+                    $("#noti-tip_no").hide();
+                  }
+                },
+              });
+            }
+          }
+        };
+      });
+    </script>
+
+    <script>
+      // 产业人才需求方向
+      var industryList = [
+        {
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202509/952792c2cc124b4aa1d5fd7fbeb45c4d.png",
+          id: 1,
+          desc: "聚焦国家战略和产业急需领域，如人工智能、大数据分析、低空经济、数字经济、智慧养老等，旨在快速培养适应新兴产业需求的专门人才",
+        },
+        {
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202509/7a97da8b763a43a79c60336e51bb06d6.png",
+          id: 2,
+          desc: '强调实践操作与职业素养，如老年护理、律师实务技能、文创设计、数智电商等，通过岗位场景模拟和项目实践，掌握"即学即用"的技能，缩短从校园到职场的适应周期。',
+        },
+        {
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202509/21561e2942714620869455970a96ac7b.png",
+          id: 3,
+          desc: "融合多学科知识，培养跨领域复合型人才，如人工智能+教育、人工智能+财经科技、数智林业与生态安全，鼓励学生在交叉领域探索创新，满足高端岗位对跨界整合能力的需求。",
+        },
+      ];
+
+      // 本校微专业列表（数据来源：test.js，tag 和 targetList 待定）
+      var courseInfoList = [
+        {
+          id: 99,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/fc85d13089984ff28d3aa4aad876f13a.jpg",
+          name: "人工智能与民俗体育",
+          university: "丽水学院",
+          courseNum: "6",
+          credit: "10",
+          hour: "160",
+          targetList: [
+            "“人工智能与民俗体育”微专业实施应用型、特色专业人才培养模式，旨在培养具有高素质应用型、创新型、交叉复合型人才。",
+            "弘扬民族文化，培养团队精神，促进社会交流与融合，同时也帮助保护和传承文化遗产",
+            "培养爱好民俗体育运动学生的民俗体育运动理论基础和运动技能。",
+            "在民俗体育学习与训练过程中激发学生热情释放情感，促进学生健康。",
+          ],
+        },
+        {
+          id: 110,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/f502ac433bdd4123a03ae93dc5d783c7.jpg",
+          name: "数字乡艺创意设计",
+          university: "丽水学院",
+          courseNum: "9",
+          credit: "9",
+          hour: "140",
+          targetList: [
+            "具备传统文化与传统艺术的鉴赏与创新能力、数字技术应用能力、乡村文化传承与振兴实践能力以及创新设计思维能力",
+            "掌握设计学基本原理，具备乡村设计的专业知识与实践能力，能结合数字技术与传统艺术，提出乡村文化振兴方案，助力乡村文化与产业发展。",
+            "搭建涵盖传统纹样、地方传统技艺等传统文化知识架构，理解并掌握数字影像技术等数字技术知识，熟悉乡村相关设计领域理论与方法及民宿管家与管理专业知识。",
+            "理解乡村艺术创意设计的一般规律，具备创新设计思维能力，能够突破传统思维定式，在数字乡艺设计中展现独特创意与理念，运用创新思维解决复杂问题",
+          ],
+        },
+        {
+          id: 111,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/3aa80d55ea2e41d29d734474d56e8999.jpg",
+          name: "中医康养与艺术养生",
+          university: "丽水学院",
+          courseNum: "5",
+          credit: "5",
+          hour: "80",
+          targetList: [
+            "培养“懂中医、知艺术、善实践”的复合型康养人才。掌握中医养生、功能评定、药膳食疗、艺术养生等跨领域理论知识；具备经络推拿保健、康养方案设计、绘画疗愈实践等复合技能；服务于“健康丽水”战略，适配康养旅游、社区养老、健康管理等新业态需求；推广畲族医药、青瓷文化与传统养生结合的特色康养模式，做好中华传统文化传承",
+          ],
+        },
+        {
+          id: 112,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/ab67474128224213994c2e5a3206a9e6.jpg",
+          name: "人工智能+养生体育",
+          university: "丽水学院",
+          courseNum: "7",
+          credit: "10",
+          hour: "160",
+          targetList: [
+            "“人工智能+养生体育”微专业旨在培养德智体美劳全面发展，具备扎实的中华传统养生理论基础和过硬的实践技能，能够传承和弘扬中华优秀传统文化，服务健康中国战略的高素质应用型人才。",
+          ],
+        },
+        {
+          id: 113,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/f9e1e7ab6adf4fc18d0899c6fedc42c9.jpg",
+          name: "浙西南红色文化艺术传承",
+          university: "丽水学院",
+          courseNum: "7",
+          credit: "9",
+          hour: "144",
+          targetList: [
+            "本微专业旨在培养具备扎实的艺术理论基础和演唱、奏、舞等的实践技能，深刻理解浙西南红色文化内涵，能运用艺术形式传承和弘扬浙西南红色文化的复合型人才。",
+          ],
+        },
+        {
+          id: 114,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/07b034ca859f4ba7a30919c088be614a.jpg",
+          name: "人工智能+心理技术应用",
+          university: "丽水学院",
+          courseNum: "7",
+          credit: "8",
+          hour: "128",
+          targetList: [
+            "“人工智能+心理技术应用” 微专业实施应用型、特色专业人才培养模式，致力于培养具有扎实心理学理论基础与前沿人工智能技术应用能力的综合素养，具备跨学科视野与跨领域创新实践能力，能在心理咨询、心理测评、心理危机干预、心理健康产品开发等岗位发挥专业技能，成为适应于心理健康服务、心理技术智能化应用、心理科技产业发展的高素质应用型、创新型、交叉复合型人才。",
+          ],
+        },
+        {
+          id: 115,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/ac633f27571542f29c478eeec8439e42.jpg",
+          name: "人工智能+社区托育",
+          university: "丽水学院",
+          courseNum: "8",
+          credit: "9",
+          hour: "144",
+          targetList: [
+            "了解智慧托育的基本概念、发展历程和理论基础，掌掘智慧托育的核心理念和实践方法。",
+            "能够运用所学知识，设计、实施和优化智慧托育方案，为婴幼儿的健康成长提供科学、有效的支持。",
+            "了解托育机构的运营和管理知识，具备托育机构的基本管理能力，能够参与托育机构的日常管理和决策。",
+            "具备高度的责任心、爱心和耐心，关注婴幼儿的身心健康和成长需求，为婴幼儿提供温馨、安全、舒适的托育环境。",
+          ],
+        },
+        {
+          id: 116,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/c969f6f04ba846f1b76fc558708a5ca8.jpg",
+          name: "人工智能+幼小衔接教育",
+          university: "丽水学院",
+          courseNum: "6",
+          credit: "8",
+          hour: "128",
+          targetList: [
+            "立足国家幼小科学衔接政策导向，通过课程学习与实践训练，学生将掌握儿童身心发展规律、衔接课程设计、家校社智能协同共育策略等核心能力，助力儿童实现从“玩中学”到“学中思”的自然过渡，为后续小学教育和终身学习奠定基础。",
+          ],
+        },
+        {
+          id: 117,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/4b3bfc2e964d40cda12a33fbcbc8471e.jpg",
+          name: "人工智能与未来教师",
+          university: "丽水学院",
+          courseNum: "8",
+          credit: "12",
+          hour: "192",
+          targetList: [
+            "本项目将全面实施产教融合政策，深化与科大讯飞飞、智慧树等企业的合作，聘请企业人员作为实践导师，开展共建双师育人，共建 “Al+教育”产教融合实践基地，为学生提供真实项目的实训和实习机会。",
+            "课程体系直接引入业界领先的教育大模型作为核心实践平台，实现本地化部署。通过大量基于项目的学习任务，确保学生“学得会、用得上、能创造”，实现从技术消费者到技术赋能者的转变。",
+            "本微专业的所有课程设计都紧密围绕中小学真实教学场景。不同于计算机专业的Al课程，我们的重点不是算法的深度研究，而是AI技术如何有效地赋能“教”与“学”。从教学技能训练到校本课程开发，每门课程的最终成果都直指未来教师的核心工作任务。",
+            "课程体系采用“基础理论+核心工具+酿合应用”的模块化结构，总计13学分，含必修10学分、选修3学分。课程内容具备高阶性、交叉性和挑战性，旨在激发学生的学习潜力，培养其解决复杂问題的综合能力。",
+          ],
+        },
+        {
+          id: 118,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/8f660332d88947c88521e1620f2777ef.jpg",
+          name: "中医药与健康",
+          university: "丽水学院",
+          courseNum: "7",
+          credit: "9",
+          hour: "144",
+          targetList: [
+            "掌握中医药与健康产业领域的基础知识，构建中医药与健康产业知识体系；",
+            "培育交叉学科的思维能力、跨界融合能力和实践操作能力，发挥能力优势解决实际问题；",
+            "清晰未来产业发展规划，具备行业前瞻判断力，提升复合型职业素养与可持续发展能力。",
+          ],
+        },
+        {
+          id: 119,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202607/e94bf08ce51e48e095fa5394bdbec287.jpg",
+          name: "人工智能+电商共富",
+          university: "丽水学院",
+          courseNum: "7",
+          credit: "9",
+          hour: "144",
+          targetList: [
+            "掌握电商核心理论，理解共同富裕发展逻辑",
+            "精通智能技术应用，提升电商运营创新能力",
+            "深研数智赋能路径，助力县域经济转型升级",
+            "培育社会责任意识，探索共同富裕实践新策",
+          ],
+        },
+        {
+          id: 120,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202607/5465b4d1b7494fba85314f31e0dc877c.jpg",
+          name: "人工智能+中国青瓷艺术",
+          university: "丽水学院",
+          courseNum: "8",
+          credit: "11",
+          hour: "176",
+          targetList: [
+            "守护非遗瑰宝，传承中华青瓷文化",
+            "掌握传统工艺，创新青瓷现代设计",
+            "强化交叉融合，青瓷创作多元发展",
+            "实战导向培育，满足青瓷产业需求",
+          ],
+        },
+        {
+          id: 121,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/4ac4e26f331943e6a4e93a10ac6a34c2.jpg",
+          name: "人工智能+乡村教育振兴",
+          university: "丽水学院",
+          courseNum: "8",
+          credit: "12",
+          hour: "192",
+          targetList: [
+            "夯实交叉学科根基融通智能教育创新",
+            "掌握智能技术应用赋能教学育人全程",
+            "构建乡土五育路径活化在地教育资源",
+            "厚植教育报国情怀担当乡村育人使命",
+          ],
+        },
+        {
+          id: 183,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/5195217daf094473acbe35874c8b96c9.jpg",
+          name: "智能木玩设计",
+          university: "丽水学院",
+          courseNum: "6",
+          credit: "6",
+          hour: "96",
+          targetList: [
+            "本专业聚焦智能玩具领域的行业发展前沿，致力于培养具有扎实跨学科知识基础的探索型学习者。课程设置全面覆盖工业设计、机械工程、电子信息、数字媒体技术等智能木玩设计与制造的核心知识领域。通过《木玩艺术赏析》、《产品系统设计》、《材料与工艺》、《走进物联网》、《AIGC创意设计与应用》及《智能木玩产品开发与创新实践》六门核心课程的体系化训练，了解智能技术原理，熟练运用AIGC等现代设计工具，具备“艺术审美＋技术集成+产品实现”的综合能力，能够从事智能玩具的设计研发、项目管理及创新开发等工作。",
+          ],
+        },
+        {
+          id: 188,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/3f615180b4ea4812b3320a368ab9dd46.jpg",
+          name: "AI+婴幼儿健康照护",
+          university: "丽水学院",
+          courseNum: "7",
+          credit: "8",
+          hour: "128",
+          targetList: [
+            "培养掌握婴幼儿身心发展、营养保健、常见健康问题与照护等知识，以及 AI 数据分析、智能监测技术的复合型人才。通过学习，学生能将AI技术与照护理论知识及实践进行结合，通过智能设备监测婴幼儿生命体征与行为模式，实现健康精准评估与预警，同时恪守伦理规范，能跨领域开展团队协作，适应智慧照护行业需求，能在各类婴幼儿照护服务机构、健康管理企业、医疗卫生机构等从事相关工作。",
+          ],
+        },
+        {
+          id: 201,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/d5424c8cdfe34915a5259865ac878dc5.jpg",
+          name: "人工智能+",
+          university: "丽水学院",
+          courseNum: "6",
+          credit: "8",
+          hour: "128",
+          targetList: [
+            "使学生能够掌握人工智能领域的基本知识、主流工具（如AI绘图、AI视频、AI写作、AI PPT等）及大语言模型、AI视觉技术等前沿应用的核心操作技能。",
+            "培养学生将人工智能技术与其主修专业相结合的能力，能够在自身专业岗位上创造性地应用Al技术解决相关问题。",
+            "使毕业生不仅能够胜任传统行业中的智能化岗位，还能在新兴行业和交叉领域中开辟新的职业发展方向。",
+          ],
+        },
+        {
+          id: 204,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/e210ab4ed80d425eac0b46de11911518.jpg",
+          name: "应用英语+",
+          university: "丽水学院",
+          courseNum: "7",
+          credit: "8",
+          hour: "128",
+          targetList: [
+            "掌握学术英语写作规范，能够独立撰写结构清晰、逻辑严谨、语言规范的学术论文及报告，为参加国内外学术交流、进行深造学习奠定坚实基础。",
+            "具备在国际学术会议、商务谈判、文化交流等场景中进行流利、得体的英语演讲、讨论、问答及社交的能力，能够有效传递信息、表达观点并建立合作。",
+            "能准确理解各类题材的英语音频、视频材料，捕捉关键信息与隐含态度；并能就常见话题进行连贯、地道的口语表达与互动。",
+            "深入了解英美等主要英语国家的社会文化与思维模式，增强文化敏感性和宽容度，能够在跨文化背景下进行比较、分析、反思，避免文化定势与冲突。",
+            "掌握英汉互译的基本理论与技巧，能胜任一般性文本（如商务信函、技术资料、媒体内容）的笔译任务，具备初步的语言服务意识与能力。",
+            "熟悉雅思等国际标准化语言考试的题型与策略，提升应试水平；更重要的是，能将项目所学的语言知识与技能灵活迁移至个人专业领域、未来职业岗位及终身学习中，实现“英语＋专业”的深度融合与增值。",
+          ],
+        },
+        {
+          id: 206,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/dc49a30898564f6ba4dc2b71e6f8248c.jpg",
+          name: "非遗活化与AIGC文旅应用",
+          university: "丽水学院",
+          courseNum: "7",
+          credit: "8",
+          hour: "128",
+          targetList: [
+            "掌握AIGC（人工智能生成内容）相关技术栈，具备非遗文化元素的数字化转译与再创作能力，能运用数字技术设计开发“非遗+文旅”创新产品，推动传统文化资源向产业价值有效转化。",
+            "深度理解浙西南非遗文化内涵与技艺特征，掌握非遗数字化采集、存储与活化方法，能通过 AIGC技术实现非遗元素的动态重构，构建“非遗数字资产库”并设计商业化应用场景。",
+            "具备山区文旅产业数字化升级的系统思维，掌握文旅大数据分析与用户画像构建方法，能针对丽水山区文旅发展痛点，提出“技术+文化＋生态”融合的系统解决方案，并具备从策划到落地的全流程实践能力。",
+            "建立“生态保护与文旅发展”协同认知，掌握非遗价值解码与价值转化方法，能设计开发“生态+非遗” 主题的数字传播产品，提升公众生态保护意识与文化认同感。",
+          ],
+        },
+        {
+          id: 210,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/56fcb016d8b14556bdab78ddb8518ca8.jpg",
+          name: "智慧农业",
+          university: "丽水学院",
+          courseNum: "6",
+          credit: "8",
+          hour: "128",
+          targetList: [
+            "具有坚定正确的政治方向、良好的道德修养和健全的人格，具有高度社会责任感，拥有“一懂两爱”的“三农”情怀，树立和践行“绿水青山就是金山银山”的生态文明与可持续发展理念。",
+            "熟悉智慧农业理论和基础知识、农文旅融合思维、发展创新农业需具备的基本理论知识，具有扎实的理学基础知识、专业基础知识和科学思维能力，具有深厚的人文底蕴、求真务实的科学精神和良好的职业素养。",
+            "具有生物科技、信息科技（人工智能）与工程科技学科交叉的思维能力、跨界融合能力和农业未来产业发展规划和判断能力，具有申辩性思维、创新创业意识和创新能力，能够将创新思维和创业精神在创新创业活动中付诸实践。",
+            "掌握智慧农业领域必备的研究方法，具有较强的实践能力，能够对本专业领域实际问题进行综合分析和研究，并提出相应的对策或解决方案。",
+          ],
+        },
+        {
+          id: 223,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202607/46f5d4220a08466b8a08c64d9b46f7de.jpg",
+          name: "智慧中医药与健康管理",
+          university: "丽水学院",
+          courseNum: "8",
+          credit: "9",
+          hour: "144",
+          targetList: [
+            "了解中医药文化理论和基础知识与健康基本理论知识。",
+            "具有交叉学科的思维能力、跨界融合能力和未来产业发展规划和判断能力。",
+            "具有较好的学习能力、沟通能力、实践操作能力和执行能力。",
+          ],
+        },
+      ];
+
+      // 外校微专业 - 学校列表
+      var xiaowaizhuanye_school_list = [
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202511/9eaa794accef484692ab8e60abb0c77e.png",
+          name: "浙江大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/201a0545d1c74b2982af359360f76e7e.png",
+          name: "宁波大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/d8a737a0ab6f4ccd84c5d5efec8742c3.png",
+          name: "浙江树人学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202509/856d6a166d424784a4594d6fb8968103.png",
+          name: "宁波大学科学技术学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/3f3539e6f93549e4b74ded198c18c1a4.png",
+          name: "温州医科大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202604/1a1f7dce32ec4be6b5af1d3bb1a6eee3.png",
+          name: "湖州师范大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/zhsmanage/common/202607/65462bf8d0fe49488780906f19fe37a1.png",
+          name: "绍兴文理学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/6afec5c2357e456fab9264ea2104ff3d.png",
+          name: "金华职业技术大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202509/24d2c901e01a43e9a11143c3c81f3ca3.png",
+          name: "丽水职业技术学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/ec051a72f2fd4f1f89dabd456cafc272.png",
+          name: "衢州职业技术学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/9770c70bcdd746ee91aa9956ee7a59cd.png",
+          name: "浙江旅游职业学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/5cedf696e5b542ffb2cb116ae6deef08.png",
+          name: "浙江农林大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/beb7d696316e4ce6aea3956a7d902e07.png",
+          name: "浙江中医药大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/8f9fbe1894b940c2a51a3b0f487a8fd0.png",
+          name: "浙江师范大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/8dff5555c333413192824bf92282042b.png",
+          name: "浙江工商大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/8a6a7714e5454e36b497077e10fcb0b5.png",
+          name: "杭州师范大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202508/9e4f5556e3014d96bea1502e249a35b4.png",
+          name: "宁波财经学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202602/9c00f162ca5b461c984995fe760108be.png",
+          name: "衢州学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202604/59ddcdccada541c38126118b71c2b5b4.png",
+          name: "浙江药科职业大学",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/b2cm/base1/202604/02313db600c14330aa99cf2fe72e71b7.png",
+          name: "杭州医学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/zhsmanage/common/202605/06a9c3464ec644db9f9f7b5184253594.png",
+          name: "浙江农业商贸职业学院",
+        },
+        {
+          img: "https://image.zhihuishu.com/zhs/zhsmanage/common/202607/57e940a71bd14e19b2943b21e377beb6.png",
+          name: "宁波工程学院",
+        },
+      ];
+
+      // 外校微专业 - 全部列表（按学校分组）
+      var xiaowaizhuanyeAllList = [
+        // 浙江大学
+        {
+          id: 132,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/f782393d345e4f1ba15ad0b44c45bc21.jpg",
+          name: "智能艺术与设计",
+          university: "浙江大学",
+          courseNum: "8",
+          credit: "8",
+          hour: "128",
+        targetList: ['了解人工智能与设计领域的核心概念、前沿动态与发展趋势。','能够运用智能设计原理及工具进行创新产品原型设计与研发。','激发学生对智能艺术与设计领域的浓厚兴趣与探索精神，提升其在该交叉领域的创新思维能力、审美判断力和艺术品味。'],
+
+        },
+        {
+          id: 182,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/6639d9d541ad4f76aa6c123781b5f79d.jpg",
+          name: "人工智能+",
+          university: "浙江大学",
+          courseNum: "6",
+          credit: "9",
+          hour: "144",
+          targetList:['了解人工智能基本知识体系', '提升全球化视野，适应新技术、新业态、新模式、新产业的发展趋势','掌握人工智能核心理论与实践应用能力'],
+        },
+        // 宁波大学
+        {
+          id: 145,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/028bbc4b9dda4c85845d702f0392be61.jpg",
+          name: "智能建造",
+          university: "宁波大学",
+          courseNum: "6",
+          credit: "12",
+          hour: "192",
+          targetList: ['了解智能建造的基本知识体系；','提升全球化视野，适应新技术、新业态、新模式、新产业的发展趋势；','掌握智能建造核心理论与实践应用能力','培养具有創新思维、全过程智能建造能力的复合型人才。']
+        },
+        {
+          id: 146,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/5efbc0318bee457287d5eea313d4fd5a.jpg",
+          name: "涉外法治",
+          university: "宁波大学",
+          courseNum: "6",
+          credit: "10",
+          hour: "160",
+          targetList: ['使学生对涉外法治的法律体系有框架性了解，对该法律体系中核心法律课程有基本把握，能建立相关基本知识体系，并建立和掌握关于涉外法治实践的基本思维和方法，为培养涉外法治复合型人才奠定基础。'],
+        },
+        {
+          id: 147,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/4794213007d9405387c078f6df62be35.jpg",
+          name: "中华文化国际传播与文明互鉴",
+          university: "宁波大学",
+          courseNum: "4",
+          credit: "8",
+          hour: "136",
+          targetList: ['培养热爱祖国，信仰坚定，懂国学，通外语文化，精翻译策略与技巧，具备中外文化格义与会通能力，能够运用翻译学知识和方法进行中华文化的外译实践与域外传播，有社会责任感、创新能力和奉献精神，拥有中国情怀和国际视野的高素质创新型译介与文化交流后备人才。'],
+        },
+        {
+          id: 148,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/0253c0994ad544549ea7a782aa5447b2.jpg",
+          name: "公共卫生与预防医学",
+          university: "宁波大学",
+          courseNum: "6",
+          credit: "12",
+          hour: "192",
+          targetList:['具备良好的职业道德和正确的职业价值观；','具备扎实的预防医学理论知识和技能，较强的疾病预防控制、卫生监督、医疗卫生统计等实践能力；','具备较强的科研创新能力和终身学习能力，培养具有高素质的复合型预防医学专业人才。']
+        },
+        // 浙江树人学院
+        {
+          id: 125,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/c7aa697e86d447979eb8e5a1a01ade32.jpg",
+          name: "智能分析与环境健康",
+          university: "浙江树人学院",
+          courseNum: "5",
+          credit: "5",
+          hour: "80",
+          targetList: ['熟练利用传统和现代监测手段开展环境介质中污染物的智能监测，运用AI算法实时解析水体、大气、土壤多源数据','基于生态毒理学和环境流行病学方法，运用AI技术构建污染物暴露-毒性相应定量模型，识别关键风险因子及其致风险机制，支撑环境风险湖源防控','整合环境与健康多尺度数据，运用AI量化区域/人群特异性风险熵值，开发动态预警系统并设计分级技术干预方案，支撑精准治理实践'],
+        },
+        {
+          id: 126,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/f14199148c2748f1b7416ec5583efe6b.jpg",
+          name: "数智医学与未来健康",
+          university: "浙江树人学院",
+          courseNum: "5",
+          credit: "5",
+          hour: "80",
+          targetList: ['掌握多学科融合的核心知识与技术：系统学习人工智能、生物医药、智能材料、再生医学等领域内容，构建跨学科知识体系；','具备面向医疗健康实际问题的分析与解决能力：能够开展医疗大数据分析、智能诊疗设计、药物递送系统开发等实践应用；','形成科研创新与产业转化意识：理解临床需求与行业趋势，具备将技术与理论成果转化为实际应用或进一步研究的潜力。'],
+        },
+        // 宁波大学科学技术学院
+        {
+          id: 144,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/b3cb0ff186654c32a1d0baccf067411f.jpg",
+          name: "无人机应用",
+          university: "宁波大学科学技术学院",
+          courseNum: "6",
+          credit: "8",
+          hour: "128",
+          targetList: ['掌握低空经济产业概念与发展趋势，熟悉无人机相关法律法规，形成行业合法作业认知与操作基础；','掌握航空气象、飞行原理、组装与维护等无人机基础知识，具有无人机技术操作和设备维护能力；','熟练运用航线规划与数据处理以及驾驭多旋翼无人机协同操控，具备复杂场景无人机精准作业能力。'],
+        },
+        // 温州医科大学
+        {
+          id: 101,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202511/3c7a2f25bdcb45ad8ceb6b577ba2a0aa.jpg",
+          name: "老年护理",
+          university: "温州医科大学",
+          courseNum: "6",
+          credit: "9",
+          hour: "144",
+          targetList: ['培养社会急需的复合型、跨学科老年护理人才，使其在思想素养方面具有从事老年护理职业所必须的思想道德、职业态度和法律伦理；','在知识方面具有老年护理基础知识、老年护理专科知识、老年学科发展知识、老年卫生政策相关知识；','在技能方面具有较强的老年护理技能、评判性思维能力、资源利用能力、沟通合作能力、教育指导能力、科研创新能力及终身学习能力。'],
+        },
+        {
+          id: 133,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/8cc977f57cf94582b81b22c923d10f82.jpg",
+          name: "人工智能+康复",
+          university: "温州医科大学",
+          courseNum: "5",
+          credit: "9",
+          hour: "144",
+          targetList: ['本微专业致力于培养适应国家战略与产业发展需求，具备深厚人文情怀、扎实医学基础、创新工科思维，系统掌握人工智能技术在康复评定、治疗、干预及管理中的应用原理与技能的高素质创新型复合人才。'],
+        },
+        {
+          id: 134,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/76e21c4e81e8480fb530cb2abf1abb93.jpg",
+          name: "人工智能+护理",
+          university: "温州医科大学",
+          courseNum: "5",
+          credit: "5",
+          hour: "80",
+          targetList: ['在智慧医疗快速发展与健康中国战略深入实施的背景下，人工智能与护理微专业致力于培养具备国际视野和跨学科知识背景，掌握扎实护理学理论与人工智能技术融合应用能力，具有批判性思维、创新意识和跨领域协作能力，能够胜任智能护理系统操作、健康大数据分析、智慧养老服务、护理机器人应用、伦理合规治理等复杂场景下的决策、实践与管理工作，以推动护理行业智能化转型、提升全民健康水平为目标的复合型、创新型、引领型护理人才。'],
+        },
+        {
+          id: 135,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/94a8dde3f35f41d9b7c05e326e381abf.jpg",
+          name: "智能肿瘤学",
+          university: "温州医科大学",
+          courseNum: "5",
+          credit: "10",
+          hour: "160",
+          targetList: ['通过“智能肿瘤学”微专业的学习，以肿瘤智能诊疗、医工交叉学科等岗位为导向，培养学生的肿瘤专业知识应用能力、交叉学科实践能力、信息与数据运用能力、创新与科研能力以及团队协作与交流能力，进而培养具有医学人文素养、肿瘤临床诊疗能力与人工智能先进技术于一体的高素质复合型肿瘤学人才。'],
+        },
+        {
+          id: 136,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/33686c22d1a44ee3a6bf4ccfe178ff2a.jpg",
+          name: "中医养生学",
+          university: "温州医科大学",
+          courseNum: "6",
+          credit: "10",
+          hour: "160",
+          targetList: ['《中医养生学》微专业旨在培养拥有中医药理论知识背景，善于应用药膳、中药茶饮、中成药、针灸推拿、耳穴等方法或技术，促进身心健康的中医药预防保健人才。'],
+        },
+        {
+          id: 137,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/54211b327b894eab8faef9db3a8713cd.jpg",
+          name: "体外诊断与大数据分析",
+          university: "温州医科大学",
+          courseNum: "5",
+          credit: "10",
+          hour: "160",
+          targetList: ['培养掌握IVD产品注册与监管、主要检验仪器原理与性能评价、酶与抗体工程制备技术、体外诊断试剂生产流程、智慧检验与大数据分析等基本理论、基本知识和基本技能；熟悉IVD行业新技术、新方法及研发、生产和市场营销的基本知识，能在IVD行业从事研发、生产、市场营销及技术服务的、具有创新精神的高素质体外诊断和大数据分析的专门技术人才。'],
+        },
+        {
+          id: 138,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/06ef95688a214c97a2172289b861a063.jpg",
+          name: "全球健康",
+          university: "温州医科大学",
+          courseNum: "6",
+          credit: "10",
+          hour: "160",
+          targetList: ['培养拥有国际视野和多学科知识背景，具有批判性思维和跨文化交际能力，善于应对复杂全球健康问题，能够胜任建设人类命运共同体、健康中国战略等领域的决策、规划与管理，以促进人类社会和谐可持续发展为目标的国际化、复合型、创新型领军人才。'],
+        },
+        {
+          id: 139,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/cae16702c75e4c06a8acd4e493f04a1d.jpg",
+          name: "人工智能与智能医学",
+          university: "温州医科大学",
+          courseNum: "5",
+          credit: "10",
+          hour: "160",
+          targetList: ['给传统的医学教育注入新科技内涵',
+'培养出适应未来高科技社会需要的复合型医学人才',
+'培养具有医工背景的高质量专业从业人员',
+'培养具有创新思维和优秀动手能力、科研临床全面发展的新型医疗人才']
+        },
+        {
+          id: 179,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/a919b4ff6b9347d595ad6ea17a3108f4.jpg",
+          name: "人工智能与心理健康",
+          university: "温州医科大学",
+          courseNum: "5",
+          credit: "7",
+          hour: "112",
+          targetList:['对人工智能在心理健康领域应用的基础理论、前沿动态及伦理法规有框架性了解和深刻认识。','具备运用AI工具（特别是生成式AI）进行心理健康研究、数据分析、产品原型设计与评估的基本能力。','能够辩证看待人工智能的技术特点与应用边界，树立严谨的科学态度和高度的伦理责任感，为未来从事相关领域的学习和工作奠定坚实基础。']
+        },
+        {
+          id: 207,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/69cc588295b44b8282f084aecca751e7.jpg",
+          name: "近视防控",
+          university: "温州医科大学",
+          courseNum: "7",
+          credit: "10",
+          hour: "126",
+          targetList: ['通过“近视防控”微专业的学习，以服务近视防控国策为导向，让各类学员明白近视对人的眼睛和视觉功能的影响、了解怎么防范近视的发生发展；掌握如何科学地检测近视、近视后如何正确矫正并能正确解读国家的近视防控策略；进而培养适应时代需求、能对近视这一国病开展科学的预防、科普、诊断、矫正等一条龙服务的复合型人才。'],
+        },
+        // 湖州师范大学
+        {
+          id: 152,
+          oldId: null,
+          tag: "4",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/c2decd9d63ab414bae498f9ec5b4912d.jpg",
+          name: "蚕丝绸文化",
+          university: "湖州师范大学",
+          courseNum: "7",
+          credit: "11",
+          hour: "176",
+        targetList: ['培养蚕桑丝织技艺领域的专业技艺人才','培养富有工匠精神与热爱蚕丝绸文化的一专多能人才','培养具有传承创新精神与国际视野的新型蚕桑丝织技艺人才']
+
+        },
+        {
+          id: 154,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/e912e5cfd6a64e3b8629cc10329fca64.jpg",
+          name: "医学·运动·健康",
+          university: "湖州师范大学",
+          courseNum: "7",
+          credit: "12",
+          hour: "136",
+          targetList:['培养在各类学校、健身会所、健康管理机构、养老机构、社区等场所从事运动指导、常见病预防的健康服务人才。']
+        },
+        {
+          id: 203,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/669d65ce24ae4aa0a51a64f1ad661269.jpg",
+          name: "应急救护教育",
+          university: "湖州师范大学",
+          courseNum: "5",
+          credit: "12",
+          hour: "192",
+          targetList: ['系统掌握应急救护的核心知识体系与灾害逃生基础知识，理解培训教学基础理论与红十字人道理念，了解应急救护与应急管理领域的前沿发展、政策导向及行业标准。',
+'能够规范化、熟练化实施应急救护技能操作，具备基本的风险识别、组织疏散与避险引导能力；能够设计、组织并开展应急救护与逃生避险相结合的课程教学及培训活动；能在模拟及真实场景中综合运用跨学科知识，胜任现场救护、培训教学与公益推广等多重任务。',
+'深刻认同“生命至上、防救结合”的理念与红十字人道精神，内化博爱情怀与奉献精神；塑造沉着冷静、协同配合的应急素养与职业品格；树立灾害防范意识，激发长期投身于应急安全教育与公益推广的责任感与使命感。']
+        },
+        // 绍兴文理学院
+        {
+          id: 140,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/f5900e0d8d3c4e95a0b183b0494e03cc.jpg",
+          name: "书法审美与文创设计",
+          university: "绍兴文理学院",
+          courseNum: "4",
+          credit: "8",
+          hour: "128",
+          targetList: ['理解并掌握书法篆刻赏析与创作基础，能够初步运用书法篆刻创作的方式开展文创设计',
+'掌握设计学基本原理，具备基础的开发书法（汉字字体）相关文创产品的设计能力',
+'理解文创产业的一般规律，具有针对目标群体开展文创开发的调研策划基本能力'],
+        },
+        // 金华职业技术大学
+        {
+          id: 151,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/f638f050ce1d412ab7f41646c8821e26.jpg",
+          name: "智慧养老",
+          university: "金华职业技术大学",
+          courseNum: "6",
+          credit: "8",
+          hour: "160",
+          targetList: ['给传统的医护类教育注入新科技内涵','培养出适应未来社会需要的复合型医护人才','培养具有组织、运营和管理的高质量养老医护人员','培养具有创新思维和优秀动手能力、科研临床全面发展的新型医护人才']
+        },
+        // 丽水职业技术学院
+        {
+          id: 150,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/150257c2f01d43879f9389c50504e600.jpg",
+          name: "生态产品数字化营销",
+          university: "丽水职业技术学院",
+          courseNum: "5",
+          credit: "7",
+          hour: "112",
+          targetList: ['掌握生态产品用户分析与精准触达能力','掌握生态产品新媒体创作及运营能力','掌握生态产品全渠道营销策划能力','掌握生态产品特色物流方案设计与执行能力'],
+        },
+        {
+          id: 208,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/6d603d0e1a074e1990e5f518dc928ee3.jpg",
+          name: "自然研学+",
+          university: "丽水职业技术学院",
+          courseNum: "6",
+          credit: "10",
+          hour: "168",
+          targetList: ['深入理解习近平生态文明思想的核心要义，牢固树立“人与自然和谐共生”的价值观。通过专业学习与实践，激发学员对乡土与自然的深厚情感，具备强烈的社会责任感和生态文明教育的使命感，成为生态文明理念的坚定传播者和践行者',
+'系统掌握植物学、生态学、昆虫学等基础理论知识，并具备极强的实地应用能力。能够在真实的自然场景中，敏锐地发现教学契机，引导青少年建立对植物、生境和微观生命的整体认知，在实践中培养科学思维，唤醒生态情怀。',
+'掌握自然教育课程设计的前沿理论与方法论，能够基于不同年龄阶段青少年的认知规律和心理特点，独立整合利用在地自然资源，开发出主题鲜明、形式新颖、目标明确的自然研学课程与项目。',
+'具备卓越的户外活动组织协调能力、团队领导力及安全保障意识。对标国家自然教育导师职业能力要求，熟练掌握活动组织流程、引导技巧及突发事件的应急处理方法，确保研学活动安全、有序、有趣地开展，在体验式学习中引导青少年建立与自然的深层情感连接。']
+        },
+        {
+          id: 213,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202605/2fd70a475b384d6484294256c5c01cd8.jpg",
+          name: "嵌入式产品设计开发及快速成型",
+          university: "丽水职业技术学院",
+          courseNum: "6",
+          credit: "12",
+          hour: "192",
+          targetList: ['掌握机电产品测绘、CAD三维设计、增材制造、单片机应用的核心理论与技术方法。','具备嵌入式产品结构设计、三维建模、3D打印样机制作、单片机软硬件开发与调试能力。','具备产品逆向设计、嵌入式产品全流程开发与综合实训实践能力，满足企业真实项目开发需求。'],
+        },
+        // 衢州职业技术学院
+        {
+          id: 142,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/357eca5b394f4c268b20d49c432314d1.jpg",
+          name: "中医药养生",
+          university: "衢州职业技术学院",
+          courseNum: "4",
+          credit: "8",
+          hour: "128",
+          targetList: ['培养掌握中医药基本理论和体质辨识、技法应用、功法导引及药膳制作等养生技能的专业人才。',
+'培养能够运用中医药养生知识为老年人提供健康管理、疾病预防和康复服务的复合型人才。',
+'培养具有创新思维和实践能力，能够推动中医药养生文化传承与发展的应用型人才。'],
+        },
+        {
+          id: 143,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/abbc60ebcdde48e1bbf3ea2694a9fb9e.jpg",
+          name: "高龄者介护",
+          university: "衢州职业技术学院",
+          courseNum: "5",
+          credit: "8",
+          hour: "128",
+          targetList: ['系统掌握高龄者身心变化规律、国际先进介护理念、中医养生保健理论、认知症照护及安宁疗护等专业知识。',
+'熟练运用照护专业技术，为高龄者提供身心护理、失智照护、沟通交流、中医康复保健及临终关怀等专业服务，同时具备应对老年人常见健康问题及突发事件的处置能力。',
+'培养“尊重生命、以人为本”的职业价值观，强化中医文化素养、人文关怀精神、团队协作能力的培养。']
+        },
+        // 浙江旅游职业学院
+        {
+          id: 128,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/04a9614473834effaa9558522b98f454.jpg",
+          name: "乡村运营与创新创业",
+          university: "浙江旅游职业学院",
+          courseNum: "6",
+          credit: "6",
+          hour: "96",
+          targetList: ['以乡村振兴为指引，立足乡村资源活化与产业创新发展需求，通过理论教学与实践实训结合的方式，致力于培养具备“运营规划、创新思维、创业能力”三位一体核心素养的复合型人才。使学生掌握乡村资源评估、产业规划等运营技能，强化洞察力与创新思维，提升项目策划、团队管理等创业实战能力，最终为地方政府、文旅企业等输送推动乡村经济发展的中坚力量。'],
+        },
+        {
+          id: 129,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/556ca92cd43a4b5d9d1f2f11e90851f8.jpg",
+          name: "文旅·数字·新丝路",
+          university: "浙江旅游职业学院",
+          courseNum: "7",
+          credit: "12",
+          hour: "192",
+          targetList: ['“知识目标”是通过汉语或英语“媒介语”，掌握中国及周边国家的旅游知识与导游服务技巧',
+'“认知目标”是通过本微专业的习得，更加深刻地了解中国传统文化和当今中国社会的方方面面',
+'“情感目标”是通过本微专业在线课程的学习，厚植更多国家的留学生具有知华、友华、爱华的情怀'],
+        },
+        // 浙江农林大学
+        {
+          id: 123,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/9109eb1fca314c17b66d353a9bf9b6d5.jpg",
+          name: "数智林业与生态安全",
+          university: "浙江农林大学",
+          courseNum: "6",
+          credit: "11",
+          hour: "176",
+          targetList: [
+            '围绕国家社会经济发展和林业建设需要，以培养学习者深入理解现代林业的多功能作用与多重价值，切实体会现代林业人与自然和谐共荣的生态理念，通过灵活的课程组织和先进的授课形式，使学习者较为全面了解现代林业基本知识体系，培养具有良好生态文明意识、深厚“三农”情怀、创新精神和科学素养，具备开阔的国际视野，适应新技术、新业态、新模式、新产业发展趋势的现代化人才。',
+          ],
+        },
+        {
+          id: 124,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/444b36755d3d4837b4065cf8d0b43a4d.jpg",
+          name: "碳中和与农林固碳减排",
+          university: "浙江农林大学",
+          courseNum: "5",
+          credit: "10",
+          hour: "150",
+          targetList: [
+            '解析碳中和与农林固碳减排知识体系',
+            '洞察碳中和与农林固碳减排行业前沿',
+            '透视碳中和与农林固碳减排生态系统',
+          ],
+        },
+        // 浙江中医药大学
+        {
+          id: 122,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/95babac496ae456c9de5f1fe408b5746.jpg",
+          name: "智慧康养设计",
+          university: "浙江中医药大学",
+          courseNum: "4",
+          credit: "8",
+          hour: "122",
+          targetList: ['通过“智慧康养设计”微专业的学习，以智能康养产业岗位需求为导向，培养学生的康养职业素养、康养照护能力、信息与数据运用能力、康养产品设计能力和创新实践能力，进而培养具有跨学科综合素养、适老化产品设计与人工智能先进技术于一体的创新型康养产业人才。'],
+        },
+        // 浙江师范大学
+        {
+          id: 127,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/bbe3dba9ce3d460998fc45b474e6df5b.jpg",
+          name: "心理健康教育",
+          university: "浙江师范大学",
+          courseNum: "6",
+          credit: "10",
+          hour: "156",
+          targetList: [
+            '了解和掌握心理健康教育的相关法规政策及伦理要求。',
+            '掌握扎实的心理健康知识，形成前沿的心理健康教育理念。',
+            '掌握基本的心理辅导技能，能够面向各类人群开展心理服务。',
+            '能够自主学习心理健康教育的新理论、新技术，适应国家和社会发展的新需要。',
+          ],
+        },
+        {
+          id: 156,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/3878b2586a2d467aaf408b0ba4ad21fb.jpg",
+          name: "教师教育神经科学",
+          university: "浙江师范大学",
+          courseNum: "6",
+          credit: "10",
+          hour: "149",
+          targetList: [
+            '落实立德树人机制和应用科学研究方法，培养胜任学科教学与科学研究的未来卓越教师；',
+            '探索师生互动模式和教师共情教学，培养富有高尚师德与教育情怀的教育实践者；',
+            '引入前沿的德育神经原理和国际教育理念，培养创新教师教育模式与具备国际视野的教育改革者。',
+          ],
+        },
+        // 浙江工商大学
+        {
+          id: 130,
+          oldId: null,
+          tag: "3",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/558c8fa5da9f4b4385f356241d1195b9.jpg",
+          name: "大数据统计与分析技术",
+          university: "浙江工商大学",
+          courseNum: "6",
+          credit: "8",
+          hour: "128",
+          targetList: ['本专业旨在培养具备扎实统计学理论基础，掌握大数据处理与分析技术，能够运用抽样技术、统计分析、数据挖掘及预测模型解决实际问题的专业人才。通过系统学习与实践训练，学生将掌握数据采集处理、统计建模分析、可视化呈现及决策支持的基本技能，具备独立完成数据分析项目的能力，同时培养敏锐的数据洞察力和严谨的科学思维，强化数字素养。'],
+        },
+        {
+          id: 131,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/4752f8c796d44b43a9c7b2651052c667.jpg",
+          name: "跨境电子商务",
+          university: "浙江工商大学",
+          courseNum: "4",
+          credit: "8",
+          hour: "128",
+          targetList: ['解析跨境电商知识体系',
+'洞察跨境电商行业前沿',
+'透视跨境电商生态系统'],
+        },
+        // 杭州师范大学
+        {
+          id: 155,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202601/cac21664f9434b8582e459975ee57cb5.jpg",
+          name: "0-3岁婴幼儿托育",
+          university: "杭州师范大学",
+          courseNum: "6",
+          credit: "9",
+          hour: "144",
+          targetList: ['掌握有关0-3岁婴幼儿发展与保育的基础知识，能正确处理0-3岁婴幼儿照护服务碰到的问题，具备一定的应对和指导能力。',
+'培养身心健康，人格健全；尊重婴幼儿，支持看护人；有爱心、耐心和责任心。',
+'既能胜任幼儿园工作和各类医疗卫生保健临床护理工作，又有0-3岁婴幼儿照护服务相关知识与技能的复合型应用人才。'],
+        },
+        // 宁波财经学院
+        {
+          id: 149,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/569cbec254964c45993affb7c883584b.jpg",
+          name: "创业管理与企业家精神",
+          university: "宁波财经学院",
+          courseNum: "5",
+          credit: "10",
+          hour: "160",
+          targetList: [
+            '适应新经济发展所需，具有雇主型思维、创造性思维；',
+            '具有扎实理论基础和较强实践能力的创业型人才；',
+            '具有洞见力、行动力，能够开创新事业的创业型管理人才。',
+          ],
+        },
+        // 衢州学院
+        {
+          id: 185,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/d28adcc5a36547e2adda2604c1d6f8a9.jpg",
+          name: "人工智能技术",
+          university: "衢州学院",
+          courseNum: "5",
+          credit: "6",
+          hour: "88",
+          targetList: ['系统掌握Python高级编程、机器学习、计算机视觉及自然语言处理等人工智能核心理论与技术框架；深刻理解这些技术在学生各自主修专业中的典型应用场景与赋能模式，能够洞察跨学科创新的知识连接点。',
+'具备将人工智能工具与方法应用于原专业领域，解决产品智能化、生产流程优化、数据分析与决策等实际工程与业务问题的能力；熟悉从需求分析、模型构建到系统部署的全栈开发流程，掌握基本的项目管理与团队协作技能，具备考取“人工智能训练师”等中级职业技能证书的实践水平。',
+'形成将复杂业务问题转化为可计算模型的计算思维，并建立起持续的跨学科学习与创新意识；最终，成长为能够积极服务于衢州六大产业链及浙江省数字经济高质量发展，真正“懂专业、会AI、能创新”的未来产业中坚力量。'],
+        },
+        {
+          id: 186,
+          oldId: null,
+          tag: "1",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202603/6bae36721ded43d9b8997221d56e958d.jpg",
+          name: "智能装备与数字孪生技术",
+          university: "衢州学院",
+          courseNum: "5",
+          credit: "9",
+          hour: "144",
+          targetList: ['系统掌握智能装备设计、PLC与嵌入式控制、传感器与机器视觉、数字孪生建模等核心理论与方法。',
+'重点培养智能装备开发调试、工业数据采集分析、以及数字孪生系统构建与仿真优化等专业实践能力。',
+'培育系统思维、创新意识与解决复杂工程问题的综合素养，胜任产业智能化挑战。'],
+        },
+        // 浙江药科职业大学
+        {
+          id: 202,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/4a5df8dc3259441ca9ac0489ff7a5385.jpg",
+          name: "药物临床试验研究与监管",
+          university: "浙江药科职业大学",
+          courseNum: "5",
+          credit: "14",
+          hour: "224",
+          targetList: ['面向药学类专业学生开设，培养理想信念坚定，具有一定的科学文化水平，良好的人文素养、医药道德和救死扶伤精神，较强的就业能力和可持续发展的能力，熟悉法律法规和标准，掌握医药知识和临床试验研究技术技能，面向药物临床试验机构，能够从事药物临床试验研究协调员（CRC）、临床试验研究监查员（CRA）等临床试验工作的高端技能人才。'],
+        },
+        // 杭州医学院
+        {
+          id: 209,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202604/e997ec42d08b49d0b34955e9639d4424.jpg",
+          name: "全科医学素养",
+          university: "杭州医学院",
+          courseNum: "3",
+          credit: "3",
+          hour: "48",
+          targetList: ['面向临床医学类、非临床医学类专业，聚焦大健康团队人才成长需求，以系统构建全科医学素养体系为基础，重点培育具备扎实全科医学素养、综合诊疗能力与人文关怀素养的复合型临床人才，同步深化AI在临床诊疗中的实践应用能力、高效医患沟通协作能力，全面提升职业发展竞争力，助力学员精准匹配基层医疗岗位与临床一线工作岗位需求，成长为能深度融入基层医疗团队、适配基层医疗服务场景的专业化临床医学从业者。'],
+        },
+        // 浙江农业商贸职业学院
+        {
+          id: 212,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202605/43e70a6957fb4a66a868dee9bd454156.jpg",
+          name: "茶文化传承与创新",
+          university: "浙江农业商贸职业学院",
+          courseNum: "4",
+          credit: "8",
+          hour: "128",
+          targetList: ['掌握中华茶文化源流、茶艺礼仪、茶叶感官品质、AI茶叶创新产品研发等核心知识，了解茶产业“文化+科技+设计”融合发展的前沿动态与行业规范。','能够熟练完成茶艺表演、茶叶品质鉴定、AI 辅助茶产品研发等实操工作，具备茶文化传播、茶产业创新项目落地的实践能力。','激发学生对中华优秀茶文化的热爱与传承责任感，提升文化审美、创新思维、服务意识与团队协作能力，树立非遗传承、科技赋能与产业融合发展理念。'],
+        },
+        // 宁波工程学院
+        {
+          id: 224,
+          oldId: null,
+          tag: "2",
+          img: "https://image.zhihuishu.com/zhs/zhihuishu-micro-major-admin-h5/TEACH_RESOURCE/202607/a18fec1392f1428a91e16686151234cb.jpg",
+          name: "城市更新与碳中和",
+          university: "宁波工程学院",
+          courseNum: "6",
+          credit: "12",
+          hour: "192",
+          targetList: ['《城市更新与碳中和》微专业以城市更新与低碳设计为切入点，实施应用型、特色化人才培养模式，通过系统学习城市更新、碳中和、零碳建造、数字化城市运维等关键专业领域知识，旨在培养学生形成以土木工程、建筑环境与能源工程和工程管理等跨学科为主体的综合知识体系，具备城市更新规划与低碳技术应用的综合素养、跨学科视野及绿色低碳创造性转化能力。学生通过学习，能够初步运用低碳技术与规划方法开展城市存量更新相关工作，具备城市更新项目低碳设计、运维管理的实践能力，以及针对城市更新项目开展低碳调研、方案策划与优化的基本能力，可在城市更新低碳项目设计、碳排放核算与管控、绿色建筑运维、生态修复等岗位上发挥专业技能，最终成为适应城市绿色低碳发展、城市更新项目推进、低碳产业运营需求的高素质应用型、创新型、交叉复合型人才。'],
+        },
+      ];
+
+      // 新闻资讯列表
+      var newsList = [
+        {
+          id: 1,
+          name: "浙江省教育厅关于省政协十三届四次会议第379号提案的答复",
+          origin: "浙江省教育厅",
+          year: "2026",
+          month: "05",
+          day: "28",
+          url: "https://jyt.zj.gov.cn/col/col1229266358/art/2026/art_24e37046c79b4c4ab712023d844bfab9.html",
+        },
+        {
+          id: 2,
+          name: '微专业为跳出同质化竞争"搭桥"',
+          origin: "中国青年报",
+          year: "2026",
+          month: "04",
+          day: "03",
+          url: "https://zqb.cyol.com/pad/content/202604/03/content_424261.html",
+        },
+        {
+          id: 3,
+          name: "40余所高校专家学者齐聚 共探AI时代跨境电商人才培养新路径",
+          origin: "杭州网",
+          year: "2026",
+          month: "01",
+          day: "16",
+          url: "https://hznews.hangzhou.com.cn/jingji/content/2026-01/16/content_9162687.htm",
+        },
+        {
+          id: 4,
+          name: "浙江教育报：为多元化人才培养铺路搭桥 聚焦浙江高校微专业建设",
+          origin: "阿里巴巴商学院",
+          year: "2025",
+          month: "11",
+          day: "07",
+          url: "https://www.hznu.edu.cn/c/2025-11-07/3130829.shtml",
+        },
+        {
+          id: 5,
+          name: "中国美术学院-浙江大学联合开办智能艺术与设计微专业",
+          origin: "中国美术学院",
+          year: "2025",
+          month: "06",
+          day: "30",
+          url: "https://www.caa.edu.cn/info/26381/163392.htm",
+        },
+        {
+          id: 6,
+          name: "浙江成立高校赋能历史经典产业科教联盟 多为大师工匠成学校产业导师",
+          origin: "潮新闻",
+          year: "2024",
+          month: "11",
+          day: "29",
+          url: "https://zjnews.zjol.com.cn/202411/t20241129_30679069.shtml",
+        },
+        {
+          id: 7,
+          name: "丝路电商产教融合国际共同体",
+          origin: "百度百科",
+          year: "2023",
+          month: "12",
+          day: "03",
+          url: "https://baike.baidu.com/item/丝路电商产教融合国际共同体",
+        },
+      ];
+
+      var app = new Vue({
+        el: "#app",
+        data: {
+          tabIndex: 1,
+          industryTag: "",
+          industryList: industryList,
+          courseInfoList: courseInfoList,
+          xiaowaizhuanye_school_list: xiaowaizhuanye_school_list,
+          xiaowaizhuanyeAllList: xiaowaizhuanyeAllList,
+          xiaowaizhuanyeCommendList: [],
+          xiaowaizhuanyeCurrentSchool: "",
+          newsList: newsList,
+        },
+        methods: {
+          handleTabClick: function (num) {
+            this.tabIndex = num;
+          },
+          handleEmptyClick: function () {
+            this.industryTag = "";
+            this.courseInfoList = courseInfoList;
+          },
+          handleIndustryTag: function (item) {
+            var tag = item.tag;
+            this.industryTag = tag;
+            this.courseInfoList = courseInfoList.filter(function (i) {
+              return i.tag === tag;
+            });
+          },
+          getIndustryTagValues: function (tag) {
+            var textMap = {
+              1: "急需紧缺型",
+              2: "应用技能型",
+              3: "交叉复合型",
+              4: "其他",
+            };
+            var colorMap = {
+              1: "#BC76FF",
+              2: "#DCA500 ",
+              3: "#697DF1",
+              4: "#B5FFE7",
+            };
+            var lineColorMap = {
+              1: "#DCB4FF",
+              2: "#FFEA7D ",
+              3: "#B0E3FF",
+              4: "#B5FFE7",
+            };
+            return {
+              text: textMap[tag] || "",
+              color: colorMap[tag] || "",
+              lineColor: lineColorMap[tag] || "",
+            };
+          },
+          gotoDetail: function (item) {
+            window.open(
+              "http://micromajoradminh5.zhihuishu.com/detail-render-page/" +
+                item.id,
+              "_blank",
+            );
+          },
+          handleXiaowaizhuanyeSchool: function (item) {
+            var school = item.name;
+            this.xiaowaizhuanyeCurrentSchool = school;
+            this.xiaowaizhuanyeCommendList = this.xiaowaizhuanyeAllList.filter(
+              function (i) {
+                return i.university === school;
+              },
+            );
+          },
+          handleNews: function (item) {
+            window.open(item.url, "_blank");
+          },
+        },
+        mounted: function () {
+          if (this.xiaowaizhuanye_school_list.length > 0) {
+            this.handleXiaowaizhuanyeSchool(this.xiaowaizhuanye_school_list[0]);
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+html,body,div,strong,span,form,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,table,tr,td,th,tbody,thead,input,textarea,select,fieldset,p,hr{margin:0;padding:0;}
+body{line-height:16px;color:#000;font-size:12px;  font-family: -apple-system,BlinkMacSystemFont,SF Pro SC,SF Pro Text,Helvetica Neue,Helvetica,PingFang SC,Segoe UI,Roboto,Hiragino Sans GB,arial,Source Han Sans CN,sans-serif;
+    -webkit-font-smoothing: antialiased;}
+table{border-collapse:collapse;border-spacing:0}
+filedset,img{border:0;vertical-align:middle;-ms-interpolation-mode:bicubic}
+address,em,i,caption,cite,code,th{font-weight:normal;font-style:normal}
+li{list-style:none;vertical-align:bottom;list-style-type:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%}
+a{text-decoration:none !important;color:#777;outline:none;}
+a:hover{text-decoration:none !important;color:#777;}
+button,input,select,textarea{margin:0;border:0;font-weight:inherit;vertical-align:baseline;*vertical-align:middle;outline:none}
+button,input[type="button"],input[type="text"],select,textarea{background:none}
+button,input{line-height:normal}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible}
+button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:none}
+button[disabled],input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+textarea{resize:none;vertical-align:top}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc}
