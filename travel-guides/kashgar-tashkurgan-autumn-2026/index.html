@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1e4d3b">
+<title>南疆喀什·塔县自驾 · 帕米尔高原金秋路书</title>
+<style>
+  :root{
+    --ink:#1c2a24;--muted:#5c6a60;--faint:#8a948b;--line:#d7dfd5;
+    --paper:#f3f6ee;--panel:#fbfcf7;--green:#1e4d3b;--green-2:#2a6a50;--green-bg:#e9f0e6;
+    --gold:#b37a24;--gold-bg:#faf3e3;--amber:#c47b2e;--blue:#1e4468;
+    --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    --font-display:Georgia,"Songti SC","Noto Serif SC","STSong",serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--font-body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+  a{color:var(--green-2)}
+  .wrap{max-width:940px;margin:0 auto;padding:0 18px 72px}
+
+  /* Hero */
+  .hero{background:linear-gradient(160deg,#14362a 0%,#1e4d3b 55%,#2a6a50 100%);color:#f4f7ee;padding:56px 18px 44px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(1200px 500px at 80% -10%,rgba(255,255,255,.08),transparent 60%)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .eyebrow{display:inline-block;margin:0 0 14px;padding:5px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.18em;color:#f4f7ee}
+  .hero h1{margin:0 0 12px;font-family:var(--font-display);font-size:42px;line-height:1.2;font-weight:800;letter-spacing:1px}
+  .hero .sub{margin:0;max-width:600px;font-size:16px;color:#d6e3d7}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .hero .meta span{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.06);font-size:13px;font-weight:700}
+  .hero .meta b{font-size:15px;color:#fff}
+
+  /* Section scaffold */
+  section{margin-top:50px}
+  .sec-head{margin:0 0 20px;padding-top:14px;border-top:2px solid var(--green)}
+  .sec-head .kicker{display:block;margin-bottom:2px;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--gold)}
+  .sec-head h2{margin:0;font-family:var(--font-display);font-size:27px;font-weight:800;line-height:1.3;color:var(--green)}
+  .sec-head .lead{margin:8px 0 0;color:var(--muted);font-size:14.5px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 1px 2px rgba(28,61,47,.05)}
+  .card + .card{margin-top:14px}
+  .note{padding:12px 14px;border-left:3px solid var(--gold);background:var(--gold-bg);border-radius:0 8px 8px 0;font-size:13.5px;color:#6b541f;margin-top:14px}
+
+  /* Stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
+  .stat .n{display:block;font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--green);line-height:1.1}
+  .stat .l{display:block;margin-top:4px;font-size:12px;color:var(--muted)}
+
+  /* Flight */
+  .flight{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .flight .leg{flex:1;min-width:200px}
+  .flight .city{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--green)}
+  .flight .time{font-size:30px;font-weight:800;letter-spacing:.5px;font-variant-numeric:tabular-nums}
+  .flight .airline{margin-top:2px;font-size:12.5px;color:var(--muted)}
+  .flight .arrow{font-size:26px;color:var(--faint);flex-shrink:0}
+  .tag{display:inline-block;margin-top:6px;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:800;letter-spacing:.06em}
+  .tag.go{background:var(--green-bg);color:var(--green-2)}
+  .tag.back{background:var(--gold-bg);color:var(--amber)}
+
+  /* Warnings */
+  .warn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .warn{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .warn .idx{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--green);color:#fff;font-weight:800;font-size:14px;margin-bottom:10px}
+  .warn.warn-warm .idx{background:var(--amber)}
+  .warn h3{margin:0 0 6px;font-size:16.5px;color:var(--green)}
+  .warn p{margin:0;font-size:13.5px;color:var(--muted)}
+  .warn p b{color:var(--ink)}
+
+  /* Route map */
+  .map-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px;overflow:hidden}
+  .map-card svg{display:block;width:100%;height:auto}
+  .map-cap{font-size:12px;color:var(--faint);text-align:center;padding:8px 4px 12px}
+
+  /* Driving segment tables */
+  .seg{width:100%;border-collapse:collapse;font-size:13.5px}
+  .seg th{background:var(--green);color:#fff;font-size:12px;letter-spacing:.04em;padding:8px 10px;text-align:left;font-weight:700}
+  .seg th:first-child{border-radius:8px 0 0 0}
+  .seg th:last-child{border-radius:0 8px 0 0}
+  .seg td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .seg tr:last-child td{border-bottom:none}
+  .seg td.road{font-weight:700;color:var(--green)}
+  .seg td .km{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}
+  .seg td .time{font-variant-numeric:tabular-nums;color:var(--amber);font-weight:700}
+  .seg .tot td{background:var(--green-bg);font-weight:700;color:var(--green)}
+
+  /* Day cards */
+  .day{display:grid;grid-template-columns:88px 1fr;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .day + .day{margin-top:14px}
+  .day .dhead{text-align:center}
+  .day .dnum{display:flex;align-items:center;justify-content:center;width:56px;height:56px;margin:0 auto;border-radius:50%;background:var(--green);color:#fff;font-family:var(--font-display);font-size:24px;font-weight:800}
+  .day.rest .dnum{background:var(--amber)}
+  .day .ddate{margin-top:8px;font-size:12px;color:var(--muted);line-height:1.4}
+  .day .ddate b{display:block;font-size:14px;color:var(--ink)}
+  .day .dbody h3{margin:0 0 2px;font-family:var(--font-display);font-size:20px;color:var(--green)}
+  .day .route{margin:0 0 12px;font-size:13px;color:var(--faint);font-weight:700}
+  .day .route b{color:var(--amber)}
+  .day .tl{margin:0;padding:0;list-style:none;border-left:2px solid var(--green-bg)}
+  .day .tl li{position:relative;padding:0 0 12px 18px}
+  .day .tl li::before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--green-2)}
+  .day .tl li.opt::before{background:var(--amber)}
+  .day .tl li.rest::before{background:var(--blue)}
+  .day .tl .t{font-size:13px;font-weight:800;color:var(--green-2);font-variant-numeric:tabular-nums}
+  .day .tl li.opt .t{color:var(--amber)}
+  .day .tl li.rest .t{color:var(--blue)}
+  .day .tl .d{display:inline;font-size:14px;color:var(--ink)}
+  .day .tl .d b{color:var(--green)}
+  .day .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .day .facts span{font-size:12px;color:var(--green-2);background:var(--green-bg);border-radius:6px;padding:3px 9px;font-weight:700}
+
+  /* Photo placeholders */
+  .photo{position:relative;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2));min-height:170px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.05)}
+  .photo .glyph{font-size:52px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.18));opacity:.9}
+  .photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 12px 8px;background:linear-gradient(transparent,rgba(20,40,32,.55));color:#fff;font-size:12px;font-weight:700;text-align:center}
+  .photo .swap{position:absolute;top:10px;right:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.75);color:#5c6a60;font-size:10.5px;font-weight:800}
+  /* how to use */
+  .hint{font-size:12.5px;color:var(--faint);margin-top:6px}
+
+  /* Attraction cards */
+  .poi{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .poi .body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .poi h4{margin:0;font-size:16px;color:var(--green)}
+  .poi .meta-row{display:flex;flex-wrap:wrap;gap:6px}
+  .poi .pill{font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px;background:var(--green-bg);color:var(--green-2)}
+  .poi .pill.dur{background:var(--gold-bg);color:var(--amber)}
+  .poi .pill.fee{background:#eef1f6;color:#5b6b80}
+  .poi p{margin:0;font-size:13px;color:var(--muted)}
+  .poi .tips{margin:0;padding:10px 12px;background:var(--gold-bg);border-radius:8px;font-size:12.5px;color:#6b541f}
+  .poi .tips b{color:#8a5a18}
+
+  /* List cards */
+  .list-card h3{margin:0 0 8px;font-size:15.5px;color:var(--green)}
+  .list-card ul{margin:0;padding:0;list-style:none}
+  .list-card li{position:relative;padding:7px 0 7px 22px;border-bottom:1px dashed var(--line);font-size:14px}
+  .list-card li:last-child{border-bottom:none}
+  .list-card li::before{content:"";position:absolute;left:2px;top:16px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  .list-card li b{color:var(--green)}
+
+  /* Checklist */
+  .check{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}
+  .check label{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;padding:6px 0}
+  .check input{margin-top:5px;width:16px;height:16px;accent-color:var(--green);flex-shrink:0}
+  .check .grp{grid-column:1/-1;margin-top:10px;font-weight:800;color:var(--green);font-size:13px;letter-spacing:.06em;border-top:1px solid var(--line);padding-top:10px}
+
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--faint);font-size:12px;line-height:1.7}
+  footer a{color:var(--green-2)}
+
+  /* Interactive map */
+  #routeMap{height:540px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#e8efe6}
+  .leaflet-container{font-family:var(--font-body)}
+  .legend{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);padding:10px 2px 2px}
+  .legend .lg{display:inline-block;width:22px;height:0;border-top:3px solid transparent}
+  .legend .lg-main{border-color:#1e4d3b}
+  .legend .lg-side{border-color:#b37a24;border-top-style:dashed}
+  .legend .lg-shache{border-color:#7a4a8a}
+  .map-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .navbtn{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border:1px solid var(--green);border-radius:8px;color:#fff;background:var(--green);font-size:13px;font-weight:700;text-decoration:none}
+  .navbtn:hover{background:var(--green-2)}
+
+  @media(max-width:640px){
+    .hero h1{font-size:32px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .warn-grid,.check{grid-template-columns:1fr}
+    .day{grid-template-columns:1fr}
+    .day .dhead{display:flex;align-items:center;gap:12px;text-align:left}
+    .day .dnum{width:44px;height:44px;font-size:20px;margin:0}
+    .day .ddate{margin-top:0}
+    .day .ddate b{display:inline}
+    .flight .leg{min-width:140px}
+    .seg{font-size:12.5px}
+    #routeMap{height:420px}
+  }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">帕米尔高原 · 金秋自驾路书</span>
+    <h1>南疆喀什 · 塔县自驾</h1>
+    <p class="sub">从喀什老城出发，沿中巴友谊公路一路向南，看白沙湖与喀拉库勒湖、翻达坂走盘龙古道；返程经塔合曼湿地，穿越到莎车老城寻叶尔羌古韵，最后返回喀什。10 月上旬，雪山初雪、白杨转金，是帕米尔一年里最通透的季节。</p>
+    <div class="meta">
+      <span>📅 <b>2026.10.4 — 10.10</b></span>
+      <span>🚗 <b>自驾 · 7 天</b></span>
+      <span>📍 上海 ⇄ 喀什</span>
+      <span>🏔 最高 <b>4100m</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ 概览 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">OVERVIEW</span>
+      <h2>7 天，串起喀什古城与帕米尔高原</h2>
+      <p class="lead">去程 10.4 周日抵达、返程 10.10 周六起飞，实际游玩 5 个完整白天。节奏：喀什适应 → 塔县两天深游 → 返程经塔合曼湿地到莎车 → 莎车深度游后返回喀什。</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="n">290km</span><span class="l">喀什 ⇄ 塔县单程</span></div>
+      <div class="stat"><span class="n">1289→4100</span><span class="l">海拔爬升(m)</span></div>
+      <div class="stat"><span class="n">2 晚</span><span class="l">宿塔县(高原)</span></div>
+      <div class="stat"><span class="n">4 晚</span><span class="l">宿喀什(古城)</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 核心交通 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">FLIGHTS</span>
+      <h2>核心交通 · 往返机票</h2>
+    </div>
+    <div class="card flight">
+      <div class="leg">
+        <div class="city">上海 → 喀什</div>
+        <div class="time">09:20 — 15:44</div>
+        <div class="airline">10 月 4 日 · 周日 · 去程</div>
+        <span class="tag go">去程 10.4</span>
+      </div>
+      <span class="arrow">✈</span>
+      <div class="leg">
+        <div class="city">喀什 → 上海</div>
+        <div class="time">15:55 起飞</div>
+        <div class="airline">10 月 10 日 · 周六 · 返程</div>
+        <span class="tag back">返程 10.10</span>
+      </div>
+    </div>
+    <div class="note">✈️ 航班方向已确认：10.4 上海 → 喀什、10.10 喀什 → 上海。新疆统一用北京时间，无时差；喀什机场距市区约 10km、20 分钟车程。</div>
+  </section>
+
+  <!-- ============ 路线节奏 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">ROUTE</span>
+      <h2>路线节奏</h2>
+      <p class="lead">整条线几乎全程走 <b>G314 中巴友谊公路</b>，一条路到塔县，不用记复杂岔路。难点不在距离，在海拔、检查站耗时和山路限速。</p>
+    </div>
+    <div class="map-card">
+      <svg viewBox="0 0 380 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="喀什帕米尔自驾路线示意图">
+        <defs><style>
+          .rt{fill:none;stroke:#2a6a50;stroke-width:3;stroke-linecap:round}
+          .rt-air{fill:none;stroke:#1e4468;stroke-width:2;stroke-dasharray:5 6}
+          .rt-shache{fill:none;stroke:#7a4a8a;stroke-width:2.5;stroke-linecap:round}
+          .node{fill:#fbfcf7;stroke:#2a6a50;stroke-width:2.5}
+          .node-warm{fill:#fbfcf7;stroke:#b37a24;stroke-width:2.5}
+          .node-shache{fill:#fbfcf7;stroke:#7a4a8a;stroke-width:2.5}
+          .lbl{font-family:Georgia,"Songti SC",serif;fill:#1c2a24;font-weight:700}
+          .lbl-sub{font-family:-apple-system,"PingFang SC",sans-serif;fill:#5c6a60;font-size:11px}
+          .alt{font-family:-apple-system,"PingFang SC",sans-serif;fill:#b37a24;font-size:11px;font-weight:700}
+          .daytag{font-family:-apple-system,"PingFang SC",sans-serif;fill:#fff;font-weight:800;font-size:11px}
+          .daytag-bg{fill:#2a6a50}.daytag-bg-warm{fill:#b37a24}.daytag-bg-shache{fill:#7a4a8a}
+        </style></defs>
+        <line class="rt-air" x1="190" y1="26" x2="190" y2="70"/>
+        <text class="lbl-sub" x="206" y="42">10.4 上海 ✈ 喀什</text>
+        <text class="lbl-sub" x="206" y="58">09:20 — 15:44</text>
+        <line class="rt" x1="190" y1="90" x2="190" y2="600"/>
+        <circle class="node" cx="190" cy="90" r="11"/>
+        <text class="lbl" x="160" y="82" text-anchor="end" font-size="19">喀什（古城）</text>
+        <text class="alt" x="160" y="100" text-anchor="end">1289m · D1-D2 宿</text>
+        <rect class="daytag-bg" x="214" y="78" width="58" height="18" rx="9"/><text class="daytag" x="243" y="91" text-anchor="middle">D1-D2</text>
+        <circle class="node" cx="190" cy="180" r="8"/>
+        <text class="lbl" x="160" y="174" text-anchor="end" font-size="17">白沙湖 · 白沙山</text>
+        <text class="alt" x="160" y="191" text-anchor="end">约 3300m</text>
+        <rect class="daytag-bg" x="214" y="167" width="52" height="18" rx="9"/><text class="daytag" x="240" y="180" text-anchor="middle">D3</text>
+        <circle class="node" cx="190" cy="285" r="8"/>
+        <text class="lbl" x="160" y="277" text-anchor="end" font-size="17">喀拉库勒湖 · 慕士塔格</text>
+        <text class="alt" x="160" y="295" text-anchor="end">约 3600m · 冰山之父</text>
+        <rect class="daytag-bg" x="214" y="272" width="52" height="18" rx="9"/><text class="daytag" x="240" y="285" text-anchor="middle">D3</text>
+        <circle class="node" cx="190" cy="400" r="11"/>
+        <text class="lbl" x="160" y="394" text-anchor="end" font-size="20">塔什库尔干（塔县）</text>
+        <text class="alt" x="160" y="412" text-anchor="end">3200m · D3-D4 宿</text>
+        <rect class="daytag-bg-warm" x="214" y="387" width="66" height="18" rx="9"/><text class="daytag" x="247" y="400" text-anchor="middle">D3-D4 宿</text>
+        <path d="M190 400 C 250 400, 268 445, 268 495 C 268 535, 232 542, 214 536" fill="none" stroke="#b37a24" stroke-width="2.5" stroke-linecap="round"/>
+        <circle class="node-warm" cx="214" cy="536" r="6"/>
+        <text class="lbl" x="280" y="452" font-size="15" fill="#8a5a18">盘龙古道</text>
+        <text class="alt" x="280" y="469">208 弯 · 垭口约 4100m</text>
+        <text class="alt" x="280" y="485">班迪尔蓝湖（下山顺路）</text>
+        <rect class="daytag-bg-warm" x="280" y="494" width="52" height="18" rx="9"/><text class="daytag" x="306" y="507" text-anchor="middle">D4</text>
+        <circle class="node" cx="190" cy="520" r="8"/>
+        <text class="lbl" x="160" y="514" text-anchor="end" font-size="17">塔合曼湿地</text>
+        <text class="alt" x="160" y="531" text-anchor="end">约 3000m · 返程顺路</text>
+        <rect class="daytag-bg" x="214" y="507" width="52" height="18" rx="9"/><text class="daytag" x="240" y="520" text-anchor="middle">D5</text>
+        <path class="rt-shache" d="M190 400 C 130 400, 100 440, 100 485"/>
+        <circle class="node-shache" cx="100" cy="485" r="9"/>
+        <text class="lbl" x="72" y="479" text-anchor="end" font-size="17" fill="#5b3a6b">莎车老城</text>
+        <text class="alt" x="72" y="497" text-anchor="end">约 350km · 叶尔羌文化</text>
+        <rect class="daytag-bg-shache" x="28" y="472" width="52" height="18" rx="9"/><text class="daytag" x="54" y="485" text-anchor="middle">D5</text>
+        <path class="rt-shache" d="M100 485 C 100 530, 140 570, 190 600" stroke-dasharray="6 6"/>
+        <circle class="node-shache" cx="190" cy="600" r="11"/>
+        <text class="lbl" x="160" y="594" text-anchor="end" font-size="19">回到喀什</text>
+        <text class="alt" x="160" y="612" text-anchor="end">还车 · D6 宿</text>
+        <rect class="daytag-bg-shache" x="214" y="587" width="52" height="18" rx="9"/><text class="daytag" x="240" y="600" text-anchor="middle">D6</text>
+        <line class="rt-air" x1="190" y1="600" x2="190" y2="720"/>
+        <text class="lbl-sub" x="206" y="700">10.10 喀什 ✈ 上海</text>
+        <text class="lbl-sub" x="206" y="716">15:55 起飞</text>
+      </svg>
+      <div class="map-cap">路线示意图 · 蓝色虚线为航班，绿色为主线 G314，橙色为盘龙古道支线，紫色为莎车支线</div>
+    </div>
+  </section>
+
+  <!-- ============ 交互地图 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">INTERACTIVE MAP</span>
+      <h2>交互地图 · 全程路线</h2>
+      <p class="lead">可拖拽、缩放的<b>高德中文底图</b>。绿色为主线 G314（喀什 ⇄ 塔县），橙色虚线为盘龙古道支线，紫色为莎车支线（塔县 → 莎车 → 喀什）；点标记看海拔与建议时长。</p>
+    </div>
+    <div class="card" style="padding:12px">
+      <div id="routeMap"></div>
+      <div class="legend">
+        <span class="lg lg-main"></span> 主线 G314（喀什 ⇄ 塔县）
+        <span class="lg lg-side" style="margin-left:14px"></span> 盘龙古道支线（D4）
+        <span class="lg lg-shache" style="margin-left:14px"></span> 莎车支线（D5 塔县→莎车，D6 莎车→喀什）
+      </div>
+      <div class="map-actions">
+        <a class="navbtn" href="https://uri.amap.com/navigation?from=75.9898,39.4704,喀什&to=75.225,37.772,塔什库尔干&mode=car" target="_blank" rel="noopener">🧭 D3 喀什 → 塔县</a>
+        <a class="navbtn" href="https://uri.amap.com/navigation?from=75.225,37.772,塔什库尔干&to=75.44,37.63,盘龙古道&mode=car" target="_blank" rel="noopener">🧭 D4 塔县 → 盘龙古道</a>
+        <a class="navbtn" href="https://uri.amap.com/navigation?from=75.225,37.772,塔什库尔干&to=77.25,38.42,莎车&mode=car" target="_blank" rel="noopener">🧭 D5 塔县 → 莎车</a>
+        <a class="navbtn" href="https://uri.amap.com/navigation?from=77.25,38.42,莎车&to=75.9898,39.4704,喀什&mode=car" target="_blank" rel="noopener">🧭 D6 莎车 → 喀什</a>
+      </div>
+      <p class="hint">提示：手机端点按钮会唤起高德地图 App 直接导航；G314 一条路到塔县，沿途限速、检查站多，按实时路况走即可。</p>
+    </div>
+  </section>
+
+  <!-- ============ 路程规划 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">DRIVE PLAN</span>
+      <h2>景点之间 · 路程规划</h2>
+      <p class="lead">四个开车日的分段里程与车程。高原山路限速多、检查站多，实际耗时通常比导航显示长 20–30%。</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🚗 D3 · 喀什 → 塔县（去程，总约 290km，纯车程 5.5h，含停留建议 8–9h）</h3>
+      <table class="seg">
+        <thead><tr><th>路段</th><th>距离</th><th>车程</th><th>建议停留</th></tr></thead>
+        <tbody>
+          <tr><td class="road">喀什 → 盖孜边境检查站</td><td><span class="km">约 80km</span></td><td><span class="time">约 1.5h</span></td><td>查边防证，10 分钟</td></tr>
+          <tr><td class="road">盖孜 → 白沙湖·白沙山</td><td><span class="km">约 75km</span></td><td><span class="time">约 1.2h</span></td><td>拍照 40–60 分钟</td></tr>
+          <tr><td class="road">白沙湖 → 喀拉库勒湖·慕士塔格</td><td><span class="km">约 45km</span></td><td><span class="time">约 50min</span></td><td>午餐+拍雪山 1–1.5h</td></tr>
+          <tr><td class="road">喀拉库勒湖 → 慕士塔格冰川公园（可选）</td><td><span class="km">约 15km</span></td><td><span class="time">约 25min</span></td><td>2–3h（不去则跳过）</td></tr>
+          <tr><td class="road">慕士塔格/喀拉库勒湖 → 塔什库尔干</td><td><span class="km">约 90km</span></td><td><span class="time">约 1.5–2h</span></td><td>抵达即入住</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🛣 D4 · 塔县环线（总约 120–150km）</h3>
+      <table class="seg">
+        <thead><tr><th>路段</th><th>距离</th><th>车程</th><th>建议停留</th></tr></thead>
+        <tbody>
+          <tr><td class="road">塔县 → 盘龙古道入口</td><td><span class="km">约 30km</span></td><td><span class="time">约 40min</span></td><td>盘山 2–3h（208 弯）</td></tr>
+          <tr><td class="road">盘龙古道 → 班迪尔蓝湖（下板地水库）</td><td><span class="km">约 30km</span></td><td><span class="time">约 1h</span></td><td>30 分钟</td></tr>
+          <tr><td class="road">班迪尔蓝湖 → 塔县</td><td><span class="km">约 60km</span></td><td><span class="time">约 1.5h</span></td><td>回县城休整</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🏛 D5 · 塔县 → 莎车（经 G314 转 G3012，约 350km）</h3>
+      <table class="seg">
+        <thead><tr><th>路段</th><th>距离</th><th>车程</th><th>建议停留</th></tr></thead>
+        <tbody>
+          <tr><td class="road">塔县 → 塔合曼湿地</td><td><span class="km">约 30km</span></td><td><span class="time">约 40min</span></td><td>晨雾草滩 30–40min</td></tr>
+          <tr><td class="road">塔合曼湿地 → 喀什方向（G314）</td><td><span class="km">约 120km</span></td><td><span class="time">约 2h</span></td><td>沿途观景</td></tr>
+          <tr><td class="road">转 G3012 → 莎车</td><td><span class="km">约 200km</span></td><td><span class="time">约 3h</span></td><td>傍晚抵达莎车</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🏛 D6 · 莎车 → 喀什（约 190km）</h3>
+      <table class="seg">
+        <thead><tr><th>路段</th><th>距离</th><th>车程</th><th>建议停留</th></tr></thead>
+        <tbody>
+          <tr><td class="road">莎车老城 · 叶尔羌汗王陵 · 非遗博览园</td><td><span class="km">城内</span></td><td><span class="time">—</span></td><td>上午游玩 3–4h</td></tr>
+          <tr><td class="road">莎车 → 喀什（吐和高速 G3012）</td><td><span class="km">约 190km</span></td><td><span class="time">约 2.5h</span></td><td>下午返程</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">里程为近似值，以导航为准；山区信号差，务必提前下载离线地图。</p>
+  </section>
+
+  <!-- ============ 先看这四件事 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">MUST-KNOW</span>
+      <h2>出发前，先看这四件事</h2>
+    </div>
+    <div class="warn-grid">
+      <div class="warn">
+        <span class="idx">1</span>
+        <h3>边防证是第一道门槛</h3>
+        <p>去塔县属边境地区，<b>没有边防证会被盖孜检查站劝返</b>。目的地必须写全「喀什地区塔什库尔干塔吉克自治县」，白沙湖/喀拉库勒湖属克州，还要再加「克孜勒苏柯尔克孜自治州」。2026 年起用电子边防证，首选「移民局12367」小程序线上办，截图存相册。</p>
+      </div>
+      <div class="warn warn-warm">
+        <span class="idx">2</span>
+        <h3>高原反应是最大变量</h3>
+        <p>喀什 1289m → 塔县 3200m → 盘龙古道垭口约 4100m。头一晚到塔县动作要慢、别洗澡、别喝酒，备好氧气瓶（塔县药店约 30 元/瓶）和「高原安/红景天」。有心血管、呼吸基础病的谨慎上盘龙古道垭口。</p>
+      </div>
+      <div class="warn warn-warm">
+        <span class="idx">3</span>
+        <h3>车程看似近，实际要一整天</h3>
+        <p>喀什到塔县 290km，纯开车 5–6 小时，但沿途白沙湖、喀拉库勒湖要停留拍照，加上检查站、限速，<b>留足 8–9 小时</b>。千万别下午才从喀什出发，会赶夜路山路。</p>
+      </div>
+      <div class="warn">
+        <span class="idx">4</span>
+        <h3>10 月可冷可雪，路况多变</h3>
+        <p>喀什白天 10–22℃，塔县夜间可到零下。盘龙古道遇降雪或大雾会临时管制封路，行程要有弹性。带够保暖衣物，租车时问清是否需要防滑链。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 每日安排 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">ITINERARY</span>
+      <h2>每日安排</h2>
+      <p class="lead">每天按时间轴排好，含各停留点时长与注意事项。时间可按你实际日出/体力微调。</p>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="day">
+      <div class="dhead"><div class="dnum">1</div><div class="ddate"><b>10.4 周日</b>抵达 · 古城夜游</div></div>
+      <div class="dbody">
+        <h3>落地喀什，打车进城、办证、逛古城</h3>
+        <p class="route">上海 ✈ 喀什 09:20—15:44 ｜ <b>宿喀什</b></p>
+        <ul class="tl">
+          <li><span class="t">15:44</span> <span class="d">落地喀什徕宁机场，打车到古城附近酒店（机场到市区约 30min，打车约 40–50 元）。</span></li>
+          <li><span class="t">16:30</span> <span class="d">入住后，打车去<b>喀什国际自驾车与房车营地</b>办边防证（10:00–19:00，免费、几分钟出证）。已办好则跳过。</span></li>
+          <li><span class="t">17:30</span> <span class="d">步行进<b>喀什古城</b>，先逛<b>汗巴扎夜市</b>——这是喀什最热闹的夜市，各种南疆小吃集中。</span></li>
+          <li class="rest"><span class="t">晚上</span> <span class="d">夜市扫街晚餐：<b>烤包子</b>（皮薄肉嫩汁多）、<b>缸子肉</b>（搪瓷缸炖羊肉，汤鲜肉烂）、<b>羊肉抓饭</b>（油亮喷香）、<b>烤羊肉串</b>。配一杯<b>鲜榨石榴汁</b>或<b>酸奶</b>。</span></li>
+        </ul>
+        <div class="facts"><span>🍽 汗巴扎夜市</span><span>🏨 古城民宿/市区酒店</span><span>🪪 办边防证</span><span>🚕 打车进城</span></div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day rest">
+      <div class="dhead"><div class="dnum">2</div><div class="ddate"><b>10.5 周一</b>喀什全天 · 补给</div></div>
+      <div class="dbody">
+        <h3>老城一整天：古城、高台民居、艾提尕尔周边</h3>
+        <p class="route">喀什市区（打车/步行）｜ <b>宿喀什</b></p>
+        <ul class="tl">
+          <li><span class="t">09:00</span> <span class="d">古城附近吃早餐：<b>馕坑肉</b>配<b>砖茶</b>，或<b>薄皮包子</b>（皮薄如纸，咬开汤汁四溢）。</span></li>
+          <li><span class="t">09:30</span> <span class="d">看<b>开城仪式</b>（古城东门，上午场，约 10:00 开始，具体时间问酒店，提前 15min 占位）。</span></li>
+          <li><span class="t">10:30</span> <span class="d"><b>喀什古城</b>小巷慢逛：职人巴扎（铜器、乐器、土陶）、花盆巴扎、铁匠铺、百年老茶馆（喝一壶药茶，看老城全景）。</span></li>
+          <li><span class="t">12:00</span> <span class="d"><b>艾提尕尔清真寺</b>及周边广场（约 45min，避开礼拜时段，门票约 45 元）。</span></li>
+          <li><span class="t">13:00</span> <span class="d">古城内午餐：<b>烤包子</b>（推荐「艾提尕尔烤包子」）、<b>缸子肉</b>、<b>拌面</b>（拉条子配过油肉）。饭后吃<b>冰淇淋</b>或<b>酸奶粽子</b>。</span></li>
+          <li><span class="t">15:00</span> <span class="d">打车去<b>高台民居</b>（1–1.5h）——土陶、花帽、手鼓手工艺街，比古城更原生态。</span></li>
+          <li><span class="t">17:00</span> <span class="d">步行回古城，<b>百年老茶馆</b>歇脚，喝药茶、吃<b>馕</b>（推荐玫瑰花酱馕或核桃馕）。</span></li>
+          <li class="rest"><span class="t">18:00</span> <span class="d"><b>准备</b>：买水干粮（馕、牛肉干、巧克力）、下载离线地图、核对边防证截图。晚上可再逛夜市或早休息，明天一早提车出发。</span></li>
+        </ul>
+        <div class="facts"><span>🏘 喀什古城</span><span>🏺 高台民居</span><span>🕌 艾提尕尔</span><span>🫖 百年老茶馆</span><span>🚕 打车出行</span></div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day">
+      <div class="dhead"><div class="dnum">3</div><div class="ddate"><b>10.6 周二</b>喀什 → 塔县</div></div>
+      <div class="dbody">
+        <h3>提车出发，中巴友谊公路，雪山一路相随</h3>
+        <p class="route">喀什提车 → G314 → 白沙湖 → 喀拉库勒湖 → 塔县 ｜ 约 290km ｜ <b>宿塔县(3200m)</b></p>
+        <ul class="tl">
+          <li><span class="t">07:30</span> <span class="d">酒店早餐吃饱（高海拔消耗大）。打车去<b>租车点提车</b>（提前在携程/神州租车预约，检查车况、轮胎、备胎、油量）。</span></li>
+          <li><span class="t">08:30</span> <span class="d">提车后加满油、备好氧气瓶与水，出发沿<b>G314 中巴友谊公路</b>一路向南。</span></li>
+          <li><span class="t">10:00</span> <span class="d"><b>盖孜边境检查站</b>（约 80km），查边防证，随车带身份证，排队可能 15–30min。</span></li>
+          <li><span class="t">11:30</span> <span class="d"><b>白沙湖·白沙山</b>（停留 40–60min）：白色沙山倒映在蓝绿色湖面上，第一处惊艳。风大，穿外套。</span></li>
+          <li><span class="t">13:00</span> <span class="d"><b>喀拉库勒湖·慕士塔格峰(7546m)</b>（拍照 1–1.5h）：冰山之父与公格尔九别峰倒影，湖边有小餐馆可午餐（拌面/炒菜，约 30–50 元）。</span></li>
+          <li class="opt"><span class="t">14:30</span> <span class="d">（可选）<b>慕士塔格冰川公园</b> 2–3h（需徒步，量力而行），不去则继续赶路。</span></li>
+          <li><span class="t">17:00</span> <span class="d">翻达坂抵达<b>塔什库尔干</b>，入住酒店（推荐塔县宾馆或帕米尔酒店）。</span></li>
+          <li class="rest"><span class="t">晚上</span> <span class="d">慢节奏适应高反：不洗澡、不喝酒、早休息，氧气瓶放床头。晚餐吃<b>牦牛肉火锅</b>或<b>牦牛肉汤</b>（塔县特色，肉质紧实鲜美），配<b>酥油茶</b>暖身。</span></li>
+        </ul>
+        <div class="facts"><span>🚗 今日提车</span><span>🏔 白沙湖</span><span>🏔 喀拉库勒湖</span><span>⚠️ 高反慢动作</span><span>🪪 盖孜检查</span><span>🐂 牦牛肉火锅</span></div>
+      </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="day">
+      <div class="dhead"><div class="dnum">4</div><div class="ddate"><b>10.7 周三</b>塔县环线</div></div>
+      <div class="dbody">
+        <h3>盘龙古道 208 弯 + 班迪尔蓝湖</h3>
+        <p class="route">塔县 → 盘龙古道 → 班迪尔蓝湖 → 塔县 ｜ 约 120–150km ｜ <b>宿塔县</b></p>
+        <ul class="tl">
+          <li><span class="t">08:30</span> <span class="d">塔县早餐：<b>塔吉克族奶茶</b>配<b>馕</b>，或<b>酥油馕</b>（当地牧民早餐）。</span></li>
+          <li><span class="t">09:00</span> <span class="d">出发<b>盘龙古道</b>（约 30km，车程约 40min）。注意：如遇封路（降雪/大雾）则改去石头城。</span></li>
+          <li><span class="t">10:00</span> <span class="d">盘龙古道盘山（2–3h）：208 弯，垭口约 4100m，配雪山全景。山顶风大、气温低，穿羽绒服。</span></li>
+          <li><span class="t">13:00</span> <span class="d">下山顺路看<b>班迪尔蓝湖（下板地水库）</b>（30min），高山湖蓝得发亮，适合航拍。</span></li>
+          <li><span class="t">14:00</span> <span class="d">返回塔县，午餐吃<b>手抓肉</b>（塔吉克族待客菜，大块羊肉蘸盐吃）或<b>拉面</b>。</span></li>
+          <li class="opt"><span class="t">15:30</span> <span class="d">（可选）<b>石头城·金草滩</b>（1–1.5h）——千年古城遗址配夕阳金草滩，日落前去最美。</span></li>
+          <li class="rest"><span class="t">晚上</span> <span class="d">塔县休整，再适应一晚高反。可逛塔吉克风情街，买<b>塔吉克族刺绣</b>纪念品。</span></li>
+        </ul>
+        <div class="facts"><span>🛣 盘龙古道</span><span>💧 班迪尔蓝湖</span><span>🏯 石头城(可选)</span><span>⚠️ 垭口 4100m</span><span>🍖 手抓肉</span></div>
+      </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="day rest">
+      <div class="dhead"><div class="dnum">5</div><div class="ddate"><b>10.8 周四</b>塔县 → 莎车</div></div>
+      <div class="dbody">
+        <h3>穿越帕米尔，直奔莎车</h3>
+        <p class="route">塔县 → 塔合曼湿地 → G314 → G3012 → 莎车 ｜ 约 350km ｜ <b>宿莎车</b></p>
+        <ul class="tl">
+          <li><span class="t">07:30</span> <span class="d">塔县早餐，打包路上干粮（馕、牛肉干、水）。</span></li>
+          <li><span class="t">08:00</span> <span class="d">塔县出发，先看<b>塔合曼湿地</b>（约 30km，晨雾草滩 30–40min）：10 月晨雾缭绕，金黄草甸配雪山，帕米尔最美湿地。</span></li>
+          <li><span class="t">09:00</span> <span class="d">沿 G314 北上，途经喀拉库勒湖、白沙湖——来程若阴天，回程常是晴天，雪山更通透，可补拍。</span></li>
+          <li><span class="t">11:30</span> <span class="d">路过喀什不停，直接转入<b>吐和高速 G3012</b>，继续南下前往莎车。途中可在服务区休息、加油。</span></li>
+          <li><span class="t">14:00</span> <span class="d">抵达莎车，入住酒店（推荐莎车老城附近民宿或县城酒店）。</span></li>
+          <li><span class="t">15:00</span> <span class="d">休整后逛<b>莎车老城</b>——比喀什更原生态的维吾尔老城，几乎没有商业化，土墙木门、手工作坊、嬉戏的孩童。</span></li>
+          <li class="rest"><span class="t">晚上</span> <span class="d">莎车夜市晚餐：<b>烤鸽子</b>（莎车招牌，整只鸽子炭火慢烤，皮脆肉嫩）、<b>鸽捞面</b>（鸽子汤配手擀面，汤鲜面滑）、<b>酸奶粽子</b>（糯米粽淋酸奶和蜂蜜）。配<b>卡瓦斯</b>（新疆特色饮料）。</span></li>
+        </ul>
+        <div class="facts"><span>🌾 塔合曼湿地</span><span>🏔 补拍雪峰</span><span>🏛 莎车老城</span><span>🍗 烤鸽子</span><span>🍜 鸽捞面</span></div>
+      </div>
+    </div>
+
+    <!-- Day 6 -->
+    <div class="day rest">
+      <div class="dhead"><div class="dnum">6</div><div class="ddate"><b>10.9 周五</b>莎车 → 喀什</div></div>
+      <div class="dbody">
+        <h3>莎车深度游，午后返程喀什</h3>
+        <p class="route">莎车老城 · 叶尔羌汗王陵 → 喀什 ｜ 约 190km ｜ <b>宿喀什</b></p>
+        <ul class="tl">
+          <li><span class="t">08:30</span> <span class="d">莎车早餐：<b>烤包子</b>或<b>薄皮包子</b>，配<b>砖茶</b>。</span></li>
+          <li><span class="t">09:00</span> <span class="d"><b>叶尔羌汗王陵 + 阿曼尼莎罕纪念陵</b>（1h）：叶尔羌汗国时期王陵群，阿曼尼莎罕是整理十二木卡姆的传奇王妃，建筑精美。</span></li>
+          <li><span class="t">10:30</span> <span class="d">逛<b>莎车老城</b>叶尔羌老街：拍土墙木门、看老手艺人做铜壶、逛当地巴扎（集市）。比喀什古城更原汁原味。</span></li>
+          <li><span class="t">12:00</span> <span class="d">午餐：再吃一次<b>烤鸽子</b>（值得二刷），或尝<b>鸽子汤</b>（清炖，滋补）。采购莎车特产：<b>巴旦木</b>、<b>红枣</b>、<b>核桃</b>（莎车是巴旦木之乡）。</span></li>
+          <li><span class="t">13:30</span> <span class="d">（可选）<b>莎车非遗博览园</b>看十二木卡姆表演（约 1–1.5h，演出时间现场问，通常上午和下午各一场）。</span></li>
+          <li class="rest"><span class="t">14:30</span> <span class="d">出发返回喀什，沿<b>吐和高速 G3012</b> 约 2.5h 抵达。傍晚还车、收拾行李，古城最后一逛，买伴手礼（干果、英吉沙小刀注意托运、花帽）。</span></li>
+        </ul>
+        <div class="facts"><span>🕌 叶尔羌汗王陵</span><span>🏛 莎车老城</span><span>🎵 十二木卡姆</span><span>🚗 还车</span><span>🥜 巴旦木</span></div>
+      </div>
+    </div>
+
+    <!-- Day 7 -->
+    <div class="day">
+      <div class="dhead"><div class="dnum">7</div><div class="ddate"><b>10.10 周六</b>返程</div></div>
+      <div class="dbody">
+        <h3>告别喀什，按时还车值机</h3>
+        <p class="route">喀什 ✈ 上海 · 15:55 起飞 ｜ <b>返程</b></p>
+        <ul class="tl">
+          <li><span class="t">08:30</span> <span class="d">古城附近最后早餐：<b>缸子肉</b>配<b>馕</b>，或<b>羊肉汤</b>配<b>花卷</b>。</span></li>
+          <li><span class="t">09:30</span> <span class="d">退房，古城告别漫步：买最后一包<b>玫瑰花酱馕</b>路上吃，证件、充电宝、水放随身包。</span></li>
+          <li><span class="t">11:30</span> <span class="d"><b>12:00 前到机场</b>还车（机场还车点提前确认位置），预留充足值机安检时间。</span></li>
+          <li class="rest"><span class="t">15:55</span> <span class="d">起飞返沪，行程结束。回味一路雪山、老城与烤鸽子。</span></li>
+        </ul>
+        <div class="facts"><span>⏰ 12:00 前到机场</span><span>🚗 提前还车</span><span>🫓 玫瑰花酱馕</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 特色美食 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">FOOD</span>
+      <h2>特色美食</h2>
+      <p class="lead">南疆美食以羊肉、面食为主，口味浓郁。按城市整理必吃清单，跟着吃不踩雷。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+
+      <div class="card" style="padding:16px">
+        <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🕌 喀什必吃</h3>
+        <ul style="margin:0;padding-left:18px;font-size:13px;line-height:2;color:var(--ink)">
+          <li><b>烤包子</b> — 皮薄肉嫩汁多，馕坑烤制，必吃第一名</li>
+          <li><b>缸子肉</b> — 搪瓷缸炖羊肉，汤鲜肉烂，配馕绝了</li>
+          <li><b>羊肉抓饭</b> — 油亮喷香，羊肉软烂，米粒分明</li>
+          <li><b>烤羊肉串</b> — 南疆羊肉膻味轻，撒孜然辣椒面</li>
+          <li><b>拌面（拉条子）</b> — 手擀面配过油肉，面条劲道</li>
+          <li><b>薄皮包子</b> — 皮薄如纸，咬开汤汁四溢</li>
+          <li><b>馕</b> — 玫瑰花酱馕、核桃馕、芝麻馕，种类超多</li>
+          <li><b>百年老茶馆药茶</b> — 配馕吃，看老城全景</li>
+          <li><b>鲜榨石榴汁</b> — 10 月石榴当季，甜到心里</li>
+          <li><b>酸奶粽子</b> — 糯米粽淋酸奶蜂蜜，甜品担当</li>
+        </ul>
+        <p style="margin:10px 0 0;font-size:12px;color:var(--faint)">📍 推荐：汗巴扎夜市、古城内烤包子店、百年老茶馆</p>
+      </div>
+
+      <div class="card" style="padding:16px">
+        <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🏔 塔县必吃</h3>
+        <ul style="margin:0;padding-left:18px;font-size:13px;line-height:2;color:var(--ink)">
+          <li><b>牦牛肉火锅</b> — 塔县招牌，肉质紧实鲜美，高海拔暖身必备</li>
+          <li><b>牦牛肉汤</b> — 清炖牦牛肉，汤浓肉香</li>
+          <li><b>手抓肉</b> — 塔吉克族待客菜，大块羊肉蘸盐吃</li>
+          <li><b>酥油茶</b> — 塔吉克族日常饮品，咸香暖身</li>
+          <li><b>塔吉克奶茶</b> — 配馕当早餐</li>
+          <li><b>拉面</b> — 塔县也有好吃的拉面</li>
+        </ul>
+        <p style="margin:10px 0 0;font-size:12px;color:var(--faint)">📍 推荐：塔县县城餐馆，牦牛肉火锅店随处可见</p>
+      </div>
+
+      <div class="card" style="padding:16px">
+        <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🏛 莎车必吃</h3>
+        <ul style="margin:0;padding-left:18px;font-size:13px;line-height:2;color:var(--ink)">
+          <li><b>烤鸽子</b> — 莎车招牌！整只鸽子炭火慢烤，皮脆肉嫩，南疆一绝</li>
+          <li><b>鸽捞面</b> — 鸽子汤配手擀面，汤鲜面滑，冬天暖胃</li>
+          <li><b>鸽子汤</b> — 清炖鸽子，滋补养生</li>
+          <li><b>烤包子</b> — 莎车的也好吃，和喀什略有不同</li>
+          <li><b>酸奶粽子</b> — 莎车版更甜，糯米更软</li>
+          <li><b>卡瓦斯</b> — 新疆特色发酵饮料，酸甜解腻</li>
+        </ul>
+        <p style="margin:10px 0 0;font-size:12px;color:var(--faint)">📍 推荐：莎车老城夜市、县城烤鸽子专门店</p>
+        <p style="margin:6px 0 0;font-size:12px;color:var(--warm)">🥜 <b>带走特产</b>：巴旦木（莎车是巴旦木之乡）、红枣、核桃</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 重点景点 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">HIGHLIGHTS</span>
+      <h2>重点景点</h2>
+      <p class="lead">每个景点的建议游玩时长、门票/开放、注意事项与拍照点。时长按「不赶路、够拍够看」估算。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px" id="poiGrid">
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#e9ca8b;--c2:#c9965a"><span class="swap">实拍图占位</span><span class="glyph">🕌</span><figcaption>喀什古城</figcaption></figure>
+        <div class="body">
+          <h4>喀什古城</h4>
+          <div class="meta-row"><span class="pill dur">建议 2–3h（可半天）</span><span class="pill fee">免费 · 全天</span><span class="pill">D1/D2</span></div>
+          <p>活着的维吾尔老城，迷宫小巷、土墙花门、开城仪式与汗巴扎夜市。最值得花时间慢慢转的地方。</p>
+          <p class="tips"><b>注意：</b>进民居商铺先征得同意再拍人；开城仪式在上午，具体时间问酒店。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#7fb3a0;--c2:#4f8a76"><span class="swap">实拍图占位</span><span class="glyph">🕌</span><figcaption>艾提尕尔清真寺</figcaption></figure>
+        <div class="body">
+          <h4>艾提尕尔清真寺</h4>
+          <div class="meta-row"><span class="pill dur">约 40–60min</span><span class="pill fee">约 45 元</span><span class="pill">D2</span></div>
+          <p>新疆最大清真寺之一，建筑与广场庄重，喀什地标。</p>
+          <p class="tips"><b>注意：</b>避开礼拜时段；不穿短裙短裤进入，尊重宗教习俗、殿内不拍照。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#d9a06b;--c2:#a9744a"><span class="swap">实拍图占位</span><span class="glyph">🏺</span><figcaption>高台民居</figcaption></figure>
+        <div class="body">
+          <h4>高台民居</h4>
+          <div class="meta-row"><span class="pill dur">约 1–1.5h</span><span class="pill fee">免费（部分维修）</span><span class="pill">D2</span></div>
+          <p>原生态土坯高台聚落，土陶、花帽、手鼓等手工作坊集中。</p>
+          <p class="tips"><b>注意：</b>部分区域在修缮、或有塌陷，走开放区域，别进危房。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#cfe3ea;--c2:#8fb6c4"><span class="swap">实拍图占位</span><span class="glyph">🌊</span><figcaption>白沙湖 · 白沙山</figcaption></figure>
+        <div class="body">
+          <h4>白沙湖 · 白沙山</h4>
+          <div class="meta-row"><span class="pill dur">约 40–60min</span><span class="pill fee">观景免费（有收费观景台）</span><span class="pill">D3/D5</span></div>
+          <p>白沙滩与蓝湖的强烈对比，G314 上第一处大片机位，海拔约 3300m。</p>
+          <p class="tips"><b>注意：</b>湖边风大注意保暖；无人机需遵当地规定，边境沿线多为禁飞。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#a9c6d8;--c2:#6b93ad"><span class="swap">实拍图占位</span><span class="glyph">🏔</span><figcaption>喀拉库勒湖 · 慕士塔格</figcaption></figure>
+        <div class="body">
+          <h4>喀拉库勒湖 · 慕士塔格峰</h4>
+          <div class="meta-row"><span class="pill dur">约 1–1.5h</span><span class="pill fee">湖边免费（停车可能收费）</span><span class="pill">D3/D5</span></div>
+          <p>冰山之父 7546m 倒映湖中，全程最佳观雪峰点，海拔约 3600m，停留最久的一站。</p>
+          <p class="tips"><b>注意：</b>海拔已上 3500m+，动作放缓；湖边常有马/牦牛招揽骑乘，问清价格。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#d7e5ec;--c2:#9fbccd"><span class="swap">实拍图占位</span><span class="glyph">🧊</span><figcaption>慕士塔格冰川公园</figcaption></figure>
+        <div class="body">
+          <h4>慕士塔格冰川公园</h4>
+          <div class="meta-row"><span class="pill dur">约 2–3h</span><span class="pill fee">门票+观光车</span><span class="pill">可选 · D3</span></div>
+          <p>近距离接触冰川与冰塔林，海拔约 4000m+，是「冰山之父」的亲密视角。</p>
+          <p class="tips"><b>注意：</b>体力与高反是门槛，明显不适就跳过；穿防滑徒步鞋。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#b9c7c9;--c2:#7d9294"><span class="swap">实拍图占位</span><span class="glyph">🛣</span><figcaption>盘龙古道</figcaption></figure>
+        <div class="body">
+          <h4>盘龙古道</h4>
+          <div class="meta-row"><span class="pill dur">约 2–3h</span><span class="pill fee">免费（公路）</span><span class="pill">D4</span></div>
+          <p>208 弯的网红盘山公路，垭口约 4100m，配下班地蓝湖，全景震撼。</p>
+          <p class="tips"><b>注意：</b>山路急弯多，别逆行停车拍照；遇雪或大雾会临时管制封路。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#9fc3d8;--c2:#5f8fb0"><span class="swap">实拍图占位</span><span class="glyph">💧</span><figcaption>班迪尔蓝湖</figcaption></figure>
+        <div class="body">
+          <h4>班迪尔蓝湖（下板地水库）</h4>
+          <div class="meta-row"><span class="pill dur">约 30min</span><span class="pill fee">免费</span><span class="pill">D4</span></div>
+          <p>盘龙古道下山顺路的高山湖，湖水湛蓝，晴天尤其通透。</p>
+          <p class="tips"><b>注意：</b>沿途无补给，带好水；停车观景注意来往车辆。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#d9c98a;--c2:#a99b57"><span class="swap">实拍图占位</span><span class="glyph">🌾</span><figcaption>塔合曼湿地</figcaption></figure>
+        <div class="body">
+          <h4>塔合曼湿地</h4>
+          <div class="meta-row"><span class="pill dur">约 30–40min</span><span class="pill fee">免费 · 路旁</span><span class="pill">D5</span></div>
+          <p>塔县返程顺路的高原湿地，金色草滩配雪山，晨雾时段最出片，海拔约 3000m。</p>
+          <p class="tips"><b>注意：</b>路旁停车观景，注意来往车辆；清晨较冷，穿厚实。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#c8a06a;--c2:#9a7444"><span class="swap">实拍图占位</span><span class="glyph">🏛</span><figcaption>莎车老城</figcaption></figure>
+        <div class="body">
+          <h4>莎车老城</h4>
+          <div class="meta-row"><span class="pill dur">约 1.5–2h</span><span class="pill fee">免费</span><span class="pill">D5 晚 / D6</span></div>
+          <p>比喀什更原生态的南疆老城，叶尔羌老街土墙木门、手工作坊与烟火气十足。</p>
+          <p class="tips"><b>注意：</b>老城多为本地居民生活区，拍人先打招呼；巷子多，跟着主街走不易迷路。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#8fb3a8;--c2:#5a8a7c"><span class="swap">实拍图占位</span><span class="glyph">🕌</span><figcaption>叶尔羌汗王陵</figcaption></figure>
+        <div class="body">
+          <h4>叶尔羌汗王陵 · 阿曼尼莎罕纪念陵</h4>
+          <div class="meta-row"><span class="pill dur">约 1h</span><span class="pill fee">约 30 元</span><span class="pill">D6</span></div>
+          <p>叶尔羌汗国时期王陵群，纪念陵主阿曼尼莎罕是整理十二木卡姆的传奇王妃。</p>
+          <p class="tips"><b>注意：</b>与老城、非遗博览园同城，可一条线串玩；尊重宗教习俗。</p>
+        </div>
+      </div>
+
+      <div class="poi">
+        <figure class="photo" style="--c1:#c9a9c4;--c2:#9a7495"><span class="swap">实拍图占位</span><span class="glyph">🎵</span><figcaption>莎车非遗博览园</figcaption></figure>
+        <div class="body">
+          <h4>莎车非遗博览园（十二木卡姆）</h4>
+          <div class="meta-row"><span class="pill dur">约 1–1.5h</span><span class="pill fee">以现场为准</span><span class="pill">可选 · D6</span></div>
+          <p>展示维吾尔十二木卡姆与南疆非遗，常有现场木卡姆演出，文化浓度极高。</p>
+          <p class="tips"><b>注意：</b>演出有固定场次，入园先问清时间；时间紧可与王陵二选一。</p>
+        </div>
+      </div>
+
+    </div>
+    <p class="hint">💡 替换实拍图：把每张「实拍图占位」卡片换成 <code>&lt;img src="你的照片.jpg"&gt;</code> 即可，或发我照片 URL 我帮你内嵌。</p>
+  </section>
+
+  <!-- ============ 往返交通 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">TRANSPORT</span>
+      <h2>往返交通</h2>
+    </div>
+    <div class="card list-card">
+      <ul>
+        <li><b>去程 10.4</b>：上海 → 喀什，09:20 起飞、15:44 落地。打车进城（约 40–50 元），办证，晚上逛古城。</li>
+        <li><b>D1–D2 市区交通</b>：喀什市区打车即可（起步价 5 元，市区内一般 10–20 元），不用租车。</li>
+        <li><b>D3 提车</b>：10.6 早上打车去租车点提车，出发去塔县。提前在携程/神州租车预约，选 SUV（山路+高海拔动力更稳）。</li>
+        <li><b>返程 10.10</b>：喀什 → 上海，15:55 起飞。建议 12:00 前到机场还车值机，机场安检较严、留足时间。</li>
+        <li><b>喀什机场</b>距市区约 10km、20 分钟车程；多数租车公司在机场有柜台/还车点。</li>
+        <li><b>租车建议</b>：确认车辆能否上高原、是否需加装防滑链（10 月偶有降雪）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 住宿落点 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">STAY</span>
+      <h2>住宿落点</h2>
+    </div>
+    <div class="card list-card">
+      <ul>
+        <li><b>喀什（3 晚）</b>：D1、D2、D6。首选<b>古城内民宿</b>（有氛围、逛古城方便），或市中心酒店（隔音/设施更稳）。</li>
+        <li><b>莎车（1 晚）</b>：D5。可选<b>莎车老城附近民宿</b>或县城酒店。</li>
+        <li><b>塔县（2 晚）</b>：D3、D4。选有<b>暖气/制氧</b>的酒店，提前订（国庆后房源松但高原住宿有限）。</li>
+        <li>塔县夜间冷、海拔高，第一晚别洗澡、别剧烈活动，睡前把氧气瓶放床头。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 自驾与租车 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">DRIVING</span>
+      <h2>自驾与租车</h2>
+    </div>
+    <div class="card list-card">
+      <ul>
+        <li><b>车型</b>：SUV 优先，2.0T 及以上更好，山路+高原动力足。</li>
+        <li><b>加油</b>：进塔县前在喀什加满；G314 沿途及塔县有加油站，但<u>别等到油表亮灯</u>。</li>
+        <li><b>导航</b>：山区多处无信号，<b>提前下载高德/百度离线地图</b>。</li>
+        <li><b>限速与检查</b>：G314 限速多、检查站多，留足时间；随身带好身份证+边防证。</li>
+        <li><b>路况</b>：G314 主路铺装良好，盘龙古道为盘山公路；10 月偶有降雪，问清是否需防滑链。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 出发前检查 ============ -->
+  <section>
+    <div class="sec-head">
+      <span class="kicker">CHECKLIST</span>
+      <h2>出发前检查</h2>
+    </div>
+    <div class="card check">
+      <div class="grp">证件与预约</div>
+      <label><input type="checkbox"> 电子边防证（目的地写全「喀什地区塔县 + 克州」，截图存相册）</label>
+      <label><input type="checkbox"> 莎车行程：查好吐和高速路况、叶尔羌汗王陵开放时间</label>
+      <label><input type="checkbox"> 身份证、驾驶证、租车订单</label>
+      <label><input type="checkbox"> 往返机票值机信息</label>
+      <div class="grp">健康与高反</div>
+      <label><input type="checkbox"> 氧气瓶 / 高原安 / 常用药（感冒、肠胃、晕车）</label>
+      <label><input type="checkbox"> 防晒霜、墨镜、润唇膏（高原紫外线极强）</label>
+      <label><input type="checkbox"> 保温杯、热水、高热量零食</label>
+      <div class="grp">衣物与装备</div>
+      <label><input type="checkbox"> 保暖衣物：抓绒/羽绒、帽子手套（塔县夜可零下）</label>
+      <label><input type="checkbox"> 舒适徒步鞋（盘龙古道/冰川脚下）</label>
+      <label><input type="checkbox"> 充电宝、车载充电、离线地图已下载</label>
+      <label><input type="checkbox"> 现金若干（山区信号差）+ 微信/支付宝余额</label>
+    </div>
+  </section>
+
+  <footer>
+    <p>本路书基于公开信息整理，仅供行程参考。边境政策、盘龙古道封路、路况天气以<b>当地最新公告</b>为准，出行前务必再次确认。</p>
+    <p>数据来源：<a href="https://www.sohu.com/a/1022265516_122628625">喀什→塔县边防证办理指南(2026)</a> · <a href="https://baike.baidu.com/item/%E5%8F%B6%E5%B0%94%E7%BE%8C%E6%B1%97%E7%8E%8B%E9%99%B5">叶尔羌汗王陵</a> · <a href="https://news.qq.com/rain/a/20260730A08D2100">帕米尔旅游区运营动态公告</a></p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var box = document.getElementById("routeMap");
+  if (!box || !window.L) { if (box) box.innerHTML = '<div style="padding:30px;text-align:center;color:#8a948b">地图库加载失败，请联网后刷新。</div>'; return; }
+
+  // WGS84 → GCJ-02（高德底图坐标系），否则标记会偏移约 250 米
+  function wgs84ToGcj02(lng, lat) {
+    var a = 6378245.0, ee = 0.00669342162296594323;
+    function out(lng, lat) { return lng < 72.004 || lng > 137.8347 || lat < 0.8293 || lat > 55.8271; }
+    function tL(x, y) { var r = -100 + 2 * x + 3 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * Math.sqrt(Math.abs(x)); r += (20 * Math.sin(6 * x * Math.PI) + 20 * Math.sin(2 * x * Math.PI)) * 2 / 3; r += (20 * Math.sin(y * Math.PI) + 40 * Math.sin(y / 3 * Math.PI)) * 2 / 3; r += (160 * Math.sin(y / 12 * Math.PI) + 320 * Math.sin(y * Math.PI / 30)) * 2 / 3; return r; }
+    function tG(x, y) { var r = 300 + x + 2 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * Math.sqrt(Math.abs(x)); r += (20 * Math.sin(6 * x * Math.PI) + 20 * Math.sin(2 * x * Math.PI)) * 2 / 3; r += (20 * Math.sin(x * Math.PI) + 40 * Math.sin(x / 3 * Math.PI)) * 2 / 3; r += (150 * Math.sin(x / 12 * Math.PI) + 300 * Math.sin(x / 30 * Math.PI)) * 2 / 3; return r; }
+    if (out(lng, lat)) return [lng, lat];
+    var dLat = tL(lng - 105, lat - 35), dLng = tG(lng - 105, lat - 35);
+    var rad = lat / 180 * Math.PI, m = Math.sin(rad); m = 1 - ee * m * m; var sm = Math.sqrt(m);
+    dLat = (dLat * 180) / ((a * (1 - ee)) / (m * sm) * Math.PI);
+    dLng = (dLng * 180) / (a / sm * Math.cos(rad) * Math.PI);
+    return [lng + dLng, lat + dLat];
+  }
+  function c(lng, lat) { var g = wgs84ToGcj02(lng, lat); return [g[1], g[0]]; } // Leaflet 用 [lat, lng]
+
+  var map = L.map("routeMap", { zoomControl: true });
+  L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}", {
+    subdomains: ["1", "2", "3", "4"], maxZoom: 18, attribution: "© 高德地图"
+  }).addTo(map);
+
+  // 主线 G314：喀什 → 白沙湖 → 喀拉库勒湖 → 慕士塔格 → 塔合曼湿地 → 塔县
+  var mainPts = [[39.4704,75.9898],[39.20,75.30],[38.94,75.05],[38.815,74.870],[38.445,75.070],[38.28,75.12],[37.90,75.15],[37.772,75.225]];
+  var main = mainPts.map(function (p) { return c(p[1], p[0]); });
+  L.polyline(main, { color: "#1e4d3b", weight: 4, opacity: .85 }).addTo(map);
+
+  // 盘龙古道支线
+  var sidePts = [[37.772,75.225],[37.75,75.35],[37.63,75.44],[37.62,75.50]];
+  var side = sidePts.map(function (p) { return c(p[1], p[0]); });
+  L.polyline(side, { color: "#b37a24", weight: 3, dashArray: "6 6", opacity: .9 }).addTo(map);
+
+  // 莎车支线：塔县 → 莎车
+  var shachePts = [[37.772,75.225],[38.00,75.80],[38.20,76.30],[38.42,77.25]];
+  var shache = shachePts.map(function (p) { return c(p[1], p[0]); });
+  L.polyline(shache, { color: "#7a4a8a", weight: 3, opacity: .85 }).addTo(map);
+
+  // 莎车 → 喀什
+  var shacheReturnPts = [[38.42,77.25],[38.80,77.00],[39.05,76.40],[39.4704,75.9898]];
+  var shacheReturn = shacheReturnPts.map(function (p) { return c(p[1], p[0]); });
+  L.polyline(shacheReturn, { color: "#7a4a8a", weight: 3, dashArray: "6 6", opacity: .85 }).addTo(map);
+
+  var stops = [
+    { name: "喀什古城", lng: 75.9898, lat: 39.4704, alt: "1289m", day: "D1/D2", dur: "2-3h" },
+    { name: "白沙湖·白沙山", lng: 74.870, lat: 38.815, alt: "约3300m", day: "D3", dur: "40-60min" },
+    { name: "喀拉库勒湖·慕士塔格", lng: 75.070, lat: 38.445, alt: "约3600m", day: "D3", dur: "1-1.5h" },
+    { name: "慕士塔格峰", lng: 75.12, lat: 38.28, alt: "峰7546m", day: "D3", dur: "观景" },
+    { name: "塔合曼湿地", lng: 75.15, lat: 37.90, alt: "约3000m", day: "D5", dur: "30-40min" },
+    { name: "塔什库尔干（塔县）", lng: 75.225, lat: 37.772, alt: "3200m", day: "D3/D4", dur: "宿" },
+    { name: "盘龙古道", lng: 75.44, lat: 37.63, alt: "垭口约4100m", day: "D4", dur: "2-3h" },
+    { name: "班迪尔蓝湖", lng: 75.50, lat: 37.62, alt: "", day: "D4", dur: "30min" },
+    { name: "莎车老城", lng: 77.25, lat: 38.42, alt: "约1230m", day: "D5/D6", dur: "4-5h" }
+  ];
+  stops.forEach(function (s) {
+    var icon = L.divIcon({ className: "", html: '<div style="width:20px;height:20px;border-radius:50%;background:#1e4d3b;border:2.5px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45)"></div>', iconSize: [20, 20], iconAnchor: [10, 10] });
+    var m = L.marker(c(s.lng, s.lat), { icon: icon }).addTo(map);
+    m.bindPopup('<div style="font-family:-apple-system,PingFang SC,sans-serif;line-height:1.5"><b style="color:#1e4d3b;font-size:14px">' + s.name + '</b>' +
+      '<div style="font-size:11px;color:#8a948b;margin-top:2px">' + (s.alt ? '海拔 ' + s.alt + ' · ' : '') + s.day + ' · 建议 ' + s.dur + '</div></div>');
+  });
+
+  map.fitBounds(L.latLngBounds(main.concat(side).concat(shache).concat(shacheReturn)), { padding: [30, 30] });
+})();
+</script>
+</body>
+</html>
