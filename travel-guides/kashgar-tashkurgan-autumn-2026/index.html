@@ -155,19 +155,104 @@
   .map-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
   .navbtn{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border:1px solid var(--green);border-radius:8px;color:#fff;background:var(--green);font-size:13px;font-weight:700;text-decoration:none}
   .navbtn:hover{background:var(--green-2)}
+  .navbtn:active{transform:scale(0.97)}
+
+  /* Scrollable table wrapper */
+  .seg-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  /* Better touch targets */
+  @media(hover:none) and (pointer:coarse){
+    .navbtn{min-height:44px;min-width:44px}
+    .check label{min-height:44px;padding:10px 0}
+    .tl li{min-height:44px}
+  }
 
   @media(max-width:640px){
-    .hero h1{font-size:32px}
-    .stats{grid-template-columns:repeat(2,1fr)}
-    .warn-grid,.check{grid-template-columns:1fr}
-    .day{grid-template-columns:1fr}
-    .day .dhead{display:flex;align-items:center;gap:12px;text-align:left}
+    /* Hero */
+    .hero{padding:36px 16px 32px}
+    .hero h1{font-size:28px;line-height:1.3}
+    .hero .sub{font-size:14px}
+    .hero .meta{gap:8px}
+    .hero .meta span{font-size:12px;padding:6px 10px}
+
+    /* Stats */
+    .stats{grid-template-columns:repeat(2,1fr);gap:8px}
+    .stat{padding:12px 10px}
+    .stat .n{font-size:20px}
+
+    /* Section */
+    section{margin-top:36px}
+    .sec-head h2{font-size:22px}
+
+    /* Flight */
+    .flight{gap:12px}
+    .flight .leg{min-width:140px}
+    .flight .city{font-size:18px}
+    .flight .time{font-size:24px}
+
+    /* Warnings */
+    .warn-grid{grid-template-columns:1fr}
+    .warn{padding:14px}
+
+    /* Route map */
+    .map-card svg{min-height:400px}
+
+    /* Tables - horizontal scroll */
+    .seg-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
+    .seg{min-width:500px;font-size:12px}
+    .seg th,.seg td{padding:6px 8px}
+
+    /* Day cards */
+    .day{grid-template-columns:1fr;padding:16px}
+    .day .dhead{display:flex;align-items:center;gap:12px;text-align:left;margin-bottom:12px}
     .day .dnum{width:44px;height:44px;font-size:20px;margin:0}
     .day .ddate{margin-top:0}
     .day .ddate b{display:inline}
-    .flight .leg{min-width:140px}
-    .seg{font-size:12.5px}
-    #routeMap{height:420px}
+    .day .dbody h3{font-size:17px}
+    .day .tl li{padding-bottom:10px}
+    .day .tl .t{font-size:12px}
+    .day .tl .d{font-size:13px}
+    .day .facts span{font-size:11px;padding:2px 7px}
+
+    /* Food section - single column */
+    .food-grid{grid-template-columns:1fr !important}
+    .food-grid h3{font-size:15px}
+    .food-grid ul{font-size:12.5px}
+
+    /* POI grid - single column */
+    #poiGrid{grid-template-columns:1fr !important}
+    .poi .body{padding:14px}
+    .poi h4{font-size:15px}
+
+    /* Checklist */
+    .check{grid-template-columns:1fr}
+    .check label{font-size:13px}
+
+    /* Interactive map */
+    #routeMap{height:360px;border-radius:10px}
+    .map-actions{gap:6px}
+    .navbtn{font-size:12px;padding:7px 10px}
+
+    /* List cards */
+    .list-card li{font-size:13px}
+
+    /* Legend */
+    .legend{flex-wrap:wrap;font-size:11.5px}
+
+    /* Footer */
+    footer{font-size:11.5px}
+  }
+
+  /* Small phones */
+  @media(max-width:380px){
+    .hero h1{font-size:24px}
+    .hero .meta{flex-direction:column;gap:6px}
+    .hero .meta span{width:100%;justify-content:center}
+    .stats{grid-template-columns:1fr 1fr;gap:6px}
+    .stat .n{font-size:18px}
+    .day .dhead{flex-wrap:wrap}
+    .day .ddate{width:100%;margin-top:6px}
+    #routeMap{height:300px}
   }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
@@ -333,7 +418,7 @@
 
     <div class="card">
       <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🚗 D3 · 喀什 → 塔县（去程，总约 290km，纯车程 5.5h，含停留建议 8–9h）</h3>
-      <table class="seg">
+      <div class="seg-wrap"><table class="seg">
         <thead><tr><th>路段</th><th>距离</th><th>车程</th><th>建议停留</th></tr></thead>
         <tbody>
           <tr><td class="road">喀什 → 盖孜边境检查站</td><td><span class="km">约 80km</span></td><td><span class="time">约 1.5h</span></td><td>查边防证，10 分钟</td></tr>
@@ -342,42 +427,42 @@
           <tr><td class="road">喀拉库勒湖 → 慕士塔格冰川公园（可选）</td><td><span class="km">约 15km</span></td><td><span class="time">约 25min</span></td><td>2–3h（不去则跳过）</td></tr>
           <tr><td class="road">慕士塔格/喀拉库勒湖 → 塔什库尔干</td><td><span class="km">约 90km</span></td><td><span class="time">约 1.5–2h</span></td><td>抵达即入住</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="card">
       <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🛣 D4 · 塔县环线（总约 120–150km）</h3>
-      <table class="seg">
+      <div class="seg-wrap"><table class="seg">
         <thead><tr><th>路段</th><th>距离</th><th>车程</th><th>建议停留</th></tr></thead>
         <tbody>
           <tr><td class="road">塔县 → 盘龙古道入口</td><td><span class="km">约 30km</span></td><td><span class="time">约 40min</span></td><td>盘山 2–3h（208 弯）</td></tr>
           <tr><td class="road">盘龙古道 → 班迪尔蓝湖（下板地水库）</td><td><span class="km">约 30km</span></td><td><span class="time">约 1h</span></td><td>30 分钟</td></tr>
           <tr><td class="road">班迪尔蓝湖 → 塔县</td><td><span class="km">约 60km</span></td><td><span class="time">约 1.5h</span></td><td>回县城休整</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="card">
       <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🏛 D5 · 塔县 → 莎车（经 G314 转 G3012，约 350km）</h3>
-      <table class="seg">
+      <div class="seg-wrap"><table class="seg">
         <thead><tr><th>路段</th><th>距离</th><th>车程</th><th>建议停留</th></tr></thead>
         <tbody>
           <tr><td class="road">塔县 → 塔合曼湿地</td><td><span class="km">约 30km</span></td><td><span class="time">约 40min</span></td><td>晨雾草滩 30–40min</td></tr>
           <tr><td class="road">塔合曼湿地 → 喀什方向（G314）</td><td><span class="km">约 120km</span></td><td><span class="time">约 2h</span></td><td>沿途观景</td></tr>
           <tr><td class="road">转 G3012 → 莎车</td><td><span class="km">约 200km</span></td><td><span class="time">约 3h</span></td><td>傍晚抵达莎车</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="card">
       <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🏛 D6 · 莎车 → 喀什（约 190km）</h3>
-      <table class="seg">
+      <div class="seg-wrap"><table class="seg">
         <thead><tr><th>路段</th><th>距离</th><th>车程</th><th>建议停留</th></tr></thead>
         <tbody>
           <tr><td class="road">莎车老城 · 叶尔羌汗王陵 · 非遗博览园</td><td><span class="km">城内</span></td><td><span class="time">—</span></td><td>上午游玩 3–4h</td></tr>
           <tr><td class="road">莎车 → 喀什（吐和高速 G3012）</td><td><span class="km">约 190km</span></td><td><span class="time">约 2.5h</span></td><td>下午返程</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
     <p class="hint">里程为近似值，以导航为准；山区信号差，务必提前下载离线地图。</p>
   </section>
@@ -556,7 +641,7 @@
       <h2>特色美食</h2>
       <p class="lead">南疆美食以羊肉、面食为主，口味浓郁。按城市整理必吃清单，跟着吃不踩雷。</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+    <div class="food-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
 
       <div class="card" style="padding:16px">
         <h3 style="margin:0 0 12px;color:var(--green);font-size:16px">🕌 喀什必吃</h3>
