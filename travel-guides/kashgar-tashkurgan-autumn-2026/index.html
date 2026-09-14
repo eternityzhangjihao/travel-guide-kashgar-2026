@@ -219,6 +219,7 @@
     .food-grid h3{font-size:15px}
     .food-grid ul{font-size:12.5px}
     .food-grid + .card > div[style*="grid"]{grid-template-columns:1fr !important}
+    .food-grid ~ .card div[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr !important}
 
     /* POI grid - single column */
     #poiGrid{grid-template-columns:1fr !important}
@@ -722,6 +723,54 @@
         </div>
       </div>
       <p style="margin:12px 0 0;font-size:12px;color:var(--faint)">💡 <b>采购地点</b>：古城周边干果店、喀什大巴扎、超市（汇嘉时代/太百购物中心）。馕买当天现烤的，放 2-3 天没问题。</p>
+    </div>
+
+    <!-- 餐馆推荐 -->
+    <div class="card" style="margin-top:16px;padding:16px">
+      <h3 style="margin:0 0 14px;color:var(--green);font-size:17px">📍 餐馆推荐（按城市）</h3>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <!-- 喀什 -->
+        <div>
+          <h4 style="margin:0 0 10px;font-size:15px;color:var(--amber)">🕌 喀什</h4>
+          <ul style="margin:0;padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--ink)">
+            <li><b>艾力扎提抓饭馆</b><br><span style="color:var(--faint)">古城内，老牌抓饭店，羊肉抓饭一绝</span></li>
+            <li><b>爷爷的爷爷的烤包子</b><br><span style="color:var(--faint)">古城网红店，皮薄馅大汁多</span></li>
+            <li><b>艾提尕尔烤包子</b><br><span style="color:var(--faint)">清真寺旁，现烤现卖，排队人多</span></li>
+            <li><b>海尔巴格餐厅</b><br><span style="color:var(--faint)">综合新疆菜，环境好，适合聚餐</span></li>
+            <li><b>老城百年老茶馆</b><br><span style="color:var(--faint)">药茶配馕，二楼看古城全景</span></li>
+            <li><b>汗巴扎夜市</b><br><span style="color:var(--faint)">各种小吃集中，烤包子/缸子肉/羊肉串</span></li>
+            <li><b>达瓦依合扎抓饭店</b><br><span style="color:var(--faint)">当地人常去的老店，量大实惠</span></li>
+          </ul>
+        </div>
+
+        <!-- 塔县 -->
+        <div>
+          <h4 style="margin:0 0 10px;font-size:15px;color:var(--amber)">🏔 塔县</h4>
+          <ul style="margin:0;padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--ink)">
+            <li><b>古兰丹姆餐厅</b><br><span style="color:var(--faint)">塔县较有名，牦牛火锅/手抓饭</span></li>
+            <li><b>帕米尔餐厅</b><br><span style="color:var(--faint)">塔吉克风味，手抓肉/烤全羊</span></li>
+            <li><b>牦牛火锅一条街</b><br><span style="color:var(--faint)">县城主街多家牦牛火锅店，随缘选</span></li>
+            <li><b>塔县夜市烧烤摊</b><br><span style="color:var(--faint)">现烤牦牛肉串，配啤酒</span></li>
+            <li><b>路边牧民家访</b><br><span style="color:var(--faint)">沿途可体验塔吉克族手抓肉+酥油茶</span></li>
+          </ul>
+          <p style="margin:8px 0 0;font-size:11px;color:var(--faint)">⚠️ 塔县海拔高，初到别暴饮暴食</p>
+        </div>
+
+        <!-- 莎车 -->
+        <div>
+          <h4 style="margin:0 0 10px;font-size:15px;color:var(--amber)">🏛 莎车</h4>
+          <ul style="margin:0;padding-left:18px;font-size:12.5px;line-height:1.9;color:var(--ink)">
+            <li><b>老城烤鸽子店</b><br><span style="color:var(--faint)">莎车老城内多家，整只炭火慢烤</span></li>
+            <li><b>鸽子汤面馆</b><br><span style="color:var(--faint)">鸽捞面专营，汤鲜面滑</span></li>
+            <li><b>莎车大巴扎美食区</b><br><span style="color:var(--faint)">集市内各种小吃，烤包子/馕/烤肉</span></li>
+            <li><b>老城夜市</b><br><span style="color:var(--faint)">傍晚出摊，烤鸽子+酸奶粽子</span></li>
+          </ul>
+          <p style="margin:8px 0 0;font-size:11px;color:var(--faint)">💡 莎车烤鸽子约 35-50 元/只，值得二刷</p>
+        </div>
+      </div>
+
+      <p style="margin:14px 0 0;font-size:12px;color:var(--faint)">💡 <b>找店技巧</b>：大众点评/美团搜店名看评分和导航；小红书搜「喀什美食」有大量实拍探店；古城里排队人多的摊位一般不踩雷。烤包子约 5-8 元/个，缸子肉 15-25 元/份，抓饭 15-30 元/份。</p>
     </div>
   </section>
 
